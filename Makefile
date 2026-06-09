@@ -8,7 +8,8 @@
 
 PYTHON ?= python3
 NODE ?= node
-RESULTS ?= results/2026-06-09
+# Default to the newest date-stamped release; override with RESULTS=results/<date>.
+RESULTS ?= $(shell ls -d results/*/ 2>/dev/null | sort | tail -1)
 
 .PHONY: score check manifest bench test engine-demo help
 

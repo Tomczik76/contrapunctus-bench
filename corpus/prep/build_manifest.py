@@ -151,8 +151,14 @@ def main() -> None:
             "frontend/src/data/benchmarks.json (the published page data).")
     per_piece = json.loads(BENCHMARKS.read_text())["per_piece"]
 
-    # The pinned 4-engine common subset (written by harness/score.py).
-    common_path = REPO_ROOT / "results" / "2026-06-09" / "common_subset.json"
+    # The pinned 4-engine common subset (written by harness/score.py) from
+    # the newest date-stamped release. Override with CONTRAPUNCTUS_RESULTS.
+    results_override = os.environ.get("CONTRAPUNCTUS_RESULTS")
+    if results_override:
+        common_path = Path(results_override) / "common_subset.json"
+    else:
+        dated = sorted((REPO_ROOT / "results").glob("*/"))
+        common_path = (dated[-1] / "common_subset.json") if dated else REPO_ROOT / "results" / "_none_"
     common = set()
     if common_path.exists():
         common = {p.split("/", 1)[1] for p in
