@@ -1,0 +1,289 @@
+{
+ "_doc": "Computed by harness/score.py from the four *.report.json files in this directory. Do not edit by hand.",
+ "common_subset": {
+  "pieces": 505,
+  "events": 48155
+ },
+ "micro": {
+  "contrapunctus": {
+   "name": "Contrapunctus (routed keys + learned chord-ID)",
+   "year": 2026,
+   "type": "hybrid: rules + learned chord-ID re-ranker",
+   "source": "contrapunctus.app/engine",
+   "events": 48155,
+   "exact_pct": 58.05,
+   "a_d_pct": 72.3,
+   "cumulative_tiers_pct": {
+    "exact": 58.05,
+    "+ sameChord": 61.17,
+    "+ inversion": 64.35,
+    "+ convention": 65.6,
+    "+ sharedBass": 71.92,
+    "+ secondaryDiatonic": 72.3
+   }
+  },
+  "augmentednet": {
+   "name": "AugmentedNet 11+ (RNalt)",
+   "year": 2021,
+   "type": "neural (CNN)",
+   "source": "N\u00e1poles L\u00f3pez et al., ISMIR 2021",
+   "events": 48301,
+   "exact_pct": 50.85,
+   "a_d_pct": 69.21,
+   "cumulative_tiers_pct": {
+    "exact": 50.85,
+    "+ sameChord": 55.82,
+    "+ inversion": 61.96,
+    "+ convention": 63.39,
+    "+ sharedBass": 68.52,
+    "+ secondaryDiatonic": 69.21
+   }
+  },
+  "analysisgnn": {
+   "name": "AnalysisGNN v1.0",
+   "year": 2024,
+   "type": "neural (GNN)",
+   "source": "Karystinaios 2024",
+   "events": 48301,
+   "exact_pct": 47.18,
+   "a_d_pct": 64.03,
+   "cumulative_tiers_pct": {
+    "exact": 47.18,
+    "+ sameChord": 51.29,
+    "+ inversion": 55.74,
+    "+ convention": 57.93,
+    "+ sharedBass": 63.59,
+    "+ secondaryDiatonic": 64.03
+   }
+  },
+  "music21": {
+   "name": "Music21 10.1.0 (keys given)",
+   "year": 2024,
+   "type": "rule-based; NOT autonomous \u2014 scored with the analyst's local key",
+   "source": "Cuthbert et al.",
+   "events": 48301,
+   "exact_pct": 24.68,
+   "a_d_pct": 40.17,
+   "cumulative_tiers_pct": {
+    "exact": 24.68,
+    "+ sameChord": 26.9,
+    "+ inversion": 30.38,
+    "+ convention": 31.09,
+    "+ sharedBass": 39.56,
+    "+ secondaryDiatonic": 40.17
+   }
+  }
+ },
+ "balanced": {
+  "contrapunctus": {
+   "name": "Contrapunctus (routed keys + learned chord-ID)",
+   "exact_pct": 49.08,
+   "a_d_pct": 68.86,
+   "wins": 6
+  },
+  "augmentednet": {
+   "name": "AugmentedNet 11+ (RNalt)",
+   "exact_pct": 47.18,
+   "a_d_pct": 67.27,
+   "wins": 2
+  },
+  "analysisgnn": {
+   "name": "AnalysisGNN v1.0",
+   "exact_pct": 40.92,
+   "a_d_pct": 61.94,
+   "wins": 1
+  },
+  "music21": {
+   "name": "Music21 10.1.0 (keys given)",
+   "exact_pct": 23.33,
+   "a_d_pct": 41.12,
+   "wins": 0
+  }
+ },
+ "per_group": [
+  {
+   "group": "bach-wtc",
+   "n_pieces": 24,
+   "events": 2155,
+   "contrapunctus": 35.96,
+   "contrapunctus_ad": 58.93,
+   "augmentednet": 34.71,
+   "augmentednet_ad": 58.47,
+   "analysisgnn": 25.15,
+   "analysisgnn_ad": 49.42,
+   "music21": 27.61,
+   "music21_ad": 51.65,
+   "winner": "contrapunctus"
+  },
+  {
+   "group": "beethoven-bps-fh",
+   "n_pieces": 4,
+   "events": 1073,
+   "contrapunctus": 40.63,
+   "contrapunctus_ad": 65.33,
+   "augmentednet": 49.77,
+   "augmentednet_ad": 65.92,
+   "analysisgnn": 22.47,
+   "analysisgnn_ad": 47.73,
+   "music21": 10.31,
+   "music21_ad": 25.81,
+   "winner": "augmentednet"
+  },
+  {
+   "group": "beethoven-op18",
+   "n_pieces": 24,
+   "events": 8409,
+   "contrapunctus": 47.94,
+   "contrapunctus_ad": 69.37,
+   "augmentednet": 42.75,
+   "augmentednet_ad": 67.83,
+   "analysisgnn": 38.84,
+   "analysisgnn_ad": 60.74,
+   "music21": 22.91,
+   "music21_ad": 38.69,
+   "winner": "contrapunctus"
+  },
+  {
+   "group": "brahms-lieder",
+   "n_pieces": 9,
+   "events": 823,
+   "contrapunctus": 39.25,
+   "contrapunctus_ad": 54.8,
+   "augmentednet": 39.43,
+   "augmentednet_ad": 56.46,
+   "analysisgnn": 43.09,
+   "analysisgnn_ad": 59.54,
+   "music21": 11.31,
+   "music21_ad": 30.97,
+   "winner": "analysisgnn"
+  },
+  {
+   "group": "chorales",
+   "n_pieces": 370,
+   "events": 21591,
+   "contrapunctus": 68.17,
+   "contrapunctus_ad": 74.42,
+   "augmentednet": 54.91,
+   "augmentednet_ad": 68.48,
+   "analysisgnn": 51.71,
+   "analysisgnn_ad": 62.56,
+   "music21": 25.62,
+   "music21_ad": 38.31,
+   "winner": "contrapunctus"
+  },
+  {
+   "group": "haydn-op20",
+   "n_pieces": 4,
+   "events": 1020,
+   "contrapunctus": 53.14,
+   "contrapunctus_ad": 78.63,
+   "augmentednet": 45.2,
+   "augmentednet_ad": 67.94,
+   "analysisgnn": 39.41,
+   "analysisgnn_ad": 65.2,
+   "music21": 35.69,
+   "music21_ad": 54.61,
+   "winner": "contrapunctus"
+  },
+  {
+   "group": "mozart-sonatas-dcml",
+   "n_pieces": 24,
+   "events": 6111,
+   "contrapunctus": 60.48,
+   "contrapunctus_ad": 78.79,
+   "augmentednet": 54.88,
+   "augmentednet_ad": 77.73,
+   "analysisgnn": 59.39,
+   "analysisgnn_ad": 79.35,
+   "music21": 19.6,
+   "music21_ad": 38.08,
+   "winner": "contrapunctus"
+  },
+  {
+   "group": "schubert-lieder",
+   "n_pieces": 39,
+   "events": 4093,
+   "contrapunctus": 54.51,
+   "contrapunctus_ad": 70.95,
+   "augmentednet": 54.02,
+   "augmentednet_ad": 71.23,
+   "analysisgnn": 47.56,
+   "analysisgnn_ad": 67.09,
+   "music21": 35.67,
+   "music21_ad": 53.29,
+   "winner": "contrapunctus"
+  },
+  {
+   "group": "tavern",
+   "n_pieces": 7,
+   "events": 2880,
+   "contrapunctus": 41.63,
+   "contrapunctus_ad": 68.54,
+   "augmentednet": 48.96,
+   "augmentednet_ad": 71.34,
+   "analysisgnn": 40.7,
+   "analysisgnn_ad": 65.82,
+   "music21": 21.24,
+   "music21_ad": 38.65,
+   "winner": "augmentednet"
+  }
+ ],
+ "pre_tonal": {
+  "_doc": "Monteverdi madrigals (Books 3-5, 1592-1605). Modal pre-tonal polyphony \u2014 EXPLORATORY, outside every tonal aggregate. Computed on the 4-engine common subset (same basis as the tonal tables). NOTE: contrapunctus.app/engine reports Monteverdi per-engine-own-coverage (48 pieces) rather than on the common subset, so these numbers are not meant to match that section piece-for-piece.",
+  "pieces": 39,
+  "engines": {
+   "contrapunctus": {
+    "events": 4954,
+    "exact_pct": 45.01,
+    "a_d_pct": 58.84,
+    "cumulative_tiers_pct": {
+     "exact": 45.01,
+     "+ sameChord": 46.73,
+     "+ inversion": 51.41,
+     "+ convention": 51.41,
+     "+ sharedBass": 57.85,
+     "+ secondaryDiatonic": 58.84
+    }
+   },
+   "augmentednet": {
+    "events": 4985,
+    "exact_pct": 33.6,
+    "a_d_pct": 46.82,
+    "cumulative_tiers_pct": {
+     "exact": 33.6,
+     "+ sameChord": 34.9,
+     "+ inversion": 39.0,
+     "+ convention": 39.08,
+     "+ sharedBass": 45.5,
+     "+ secondaryDiatonic": 46.82
+    }
+   },
+   "analysisgnn": {
+    "events": 4985,
+    "exact_pct": 28.89,
+    "a_d_pct": 42.59,
+    "cumulative_tiers_pct": {
+     "exact": 28.89,
+     "+ sameChord": 29.99,
+     "+ inversion": 33.34,
+     "+ convention": 33.56,
+     "+ sharedBass": 42.01,
+     "+ secondaryDiatonic": 42.59
+    }
+   },
+   "music21": {
+    "events": 4985,
+    "exact_pct": 44.49,
+    "a_d_pct": 57.03,
+    "cumulative_tiers_pct": {
+     "exact": 44.49,
+     "+ sameChord": 47.16,
+     "+ inversion": 51.51,
+     "+ convention": 51.51,
+     "+ sharedBass": 56.31,
+     "+ secondaryDiatonic": 57.03
+    }
+   }
+  }
+ }
+}

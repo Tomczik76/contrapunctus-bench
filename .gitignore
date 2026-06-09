@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Scratch / regenerated caches (the runners write here; not committed)
+/tmp/
+*.cache-key
+
+# OS
+.DS_Store
+
+# Editors
+.idea/
+.vscode/
+
+# The When-in-Rome corpus is a submodule (pointer only); its working
+# tree is populated by `git submodule update --init`, never committed
+# here as files.

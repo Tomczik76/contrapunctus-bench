@@ -1,0 +1,4076 @@
+{
+ "_doc": "Per-piece provenance for the cross-engine benchmark. This repo does not redistribute scores or analyst RN files \u2014 they are derived from the When-in-Rome submodule + fetched sources at build time (see corpus/prep/). 'events' = ground-truth RN events as the engine's parser counts them. 'in_common_subset' marks the 505 pieces scored in the head-to-head (all four engines produce output). See methodology/corpus.md.",
+ "counts": {
+  "total_pieces": 563,
+  "tonal_pieces": 515,
+  "common_subset_pieces": 505,
+  "by_genre": {
+   "bach-wtc": 24,
+   "beethoven-bps-fh": 4,
+   "beethoven-op18": 24,
+   "brahms-lieder": 9,
+   "chorales": 370,
+   "haydn-op20": 4,
+   "monteverdi": 48,
+   "mozart-sonatas-dcml": 24,
+   "schubert-lieder": 46,
+   "tavern": 10
+  }
+ },
+ "corpora": {
+  "chorales": {
+   "display": "Bach chorales (Riemenschneider 1-371)",
+   "period": "Late Baroque (~1730)",
+   "texture": "homophonic SATB",
+   "score_source": "Craig Sapp, bach-370-chorales (Riemenschneider, **kern)",
+   "score_url": "https://github.com/craigsapp/bach-370-chorales",
+   "score_license": "see source (Humdrum **kern edition)",
+   "analysis_source": "When-in-Rome (Early_Choral/Bach/Chorales)",
+   "analysis_url": "https://github.com/MarkGotham/When-in-Rome",
+   "analysis_license": "CC BY-SA 4.0"
+  },
+  "bach-wtc": {
+   "display": "Bach WTC I (24 preludes + 2 fugues)",
+   "period": "Late Baroque (1722)",
+   "texture": "figural keyboard / fugal",
+   "score_source": "When-in-Rome (Keyboard_Other/Bach/WTC I)",
+   "score_url": "https://github.com/MarkGotham/When-in-Rome",
+   "score_license": "CC BY-SA 4.0 (When-in-Rome)",
+   "analysis_source": "When-in-Rome",
+   "analysis_url": "https://github.com/MarkGotham/When-in-Rome",
+   "analysis_license": "CC BY-SA 4.0"
+  },
+  "beethoven-bps-fh": {
+   "display": "Beethoven sonatas (BPS-FH)",
+   "period": "Classical/Early Romantic (1798-1809)",
+   "texture": "figural keyboard, dense",
+   "score_source": "Chen & Su 2018, Beethoven Piano Sonatas w/ Functional Harmony (re-bundled in When-in-Rome)",
+   "score_url": "https://github.com/Tsung-Ping/functional-harmony",
+   "score_license": "see source",
+   "analysis_source": "BPS-FH via When-in-Rome",
+   "analysis_url": "https://github.com/MarkGotham/When-in-Rome",
+   "analysis_license": "CC BY-SA 4.0 (When-in-Rome conversion; original: see source)"
+  },
+  "beethoven-op18": {
+   "display": "Beethoven Op.18 string quartets",
+   "period": "Classical/Early Romantic (1798-1800)",
+   "texture": "string quartet",
+   "score_source": "When-in-Rome (Quartets/Beethoven/Op018)",
+   "score_url": "https://github.com/MarkGotham/When-in-Rome",
+   "score_license": "CC BY-SA 4.0 (When-in-Rome)",
+   "analysis_source": "When-in-Rome",
+   "analysis_url": "https://github.com/MarkGotham/When-in-Rome",
+   "analysis_license": "CC BY-SA 4.0"
+  },
+  "haydn-op20": {
+   "display": "Haydn Op.20 quartets (Sun)",
+   "period": "Classical (1772)",
+   "texture": "string quartet",
+   "score_source": "HaydnSun (Devaney & Mangru) via When-in-Rome",
+   "score_url": "https://github.com/MarkGotham/When-in-Rome",
+   "score_license": "CC BY-SA 4.0 (When-in-Rome)",
+   "analysis_source": "HaydnSun via When-in-Rome",
+   "analysis_url": "https://github.com/MarkGotham/When-in-Rome",
+   "analysis_license": "CC BY-SA 4.0"
+  },
+  "mozart-sonatas-dcml": {
+   "display": "Mozart piano sonatas (DCMLab)",
+   "period": "Classical (1773-88)",
+   "texture": "figural keyboard",
+   "score_source": "DCMLab mozart_piano_sonatas (re-bundled in When-in-Rome)",
+   "score_url": "https://github.com/DCMLab/mozart_piano_sonatas",
+   "score_license": "see source (DCML)",
+   "analysis_source": "DCMLab via When-in-Rome",
+   "analysis_url": "https://github.com/MarkGotham/When-in-Rome",
+   "analysis_license": "CC BY-SA 4.0 (When-in-Rome conversion; original: see source)"
+  },
+  "schubert-lieder": {
+   "display": "Schubert lieder",
+   "period": "Early Romantic (1815-28)",
+   "texture": "voice + piano",
+   "score_source": "OpenScore Lieder Corpus (CC0) via When-in-Rome",
+   "score_url": "https://github.com/OpenScore/Lieder",
+   "score_license": "CC0",
+   "analysis_source": "When-in-Rome (OpenScore-LiederCorpus)",
+   "analysis_url": "https://github.com/MarkGotham/When-in-Rome",
+   "analysis_license": "CC BY-SA 4.0"
+  },
+  "brahms-lieder": {
+   "display": "Brahms lieder",
+   "period": "Late Romantic (1853-68)",
+   "texture": "voice + piano",
+   "score_source": "OpenScore Lieder Corpus (CC0) via When-in-Rome",
+   "score_url": "https://github.com/OpenScore/Lieder",
+   "score_license": "CC0",
+   "analysis_source": "When-in-Rome (OpenScore-LiederCorpus)",
+   "analysis_url": "https://github.com/MarkGotham/When-in-Rome",
+   "analysis_license": "CC BY-SA 4.0"
+  },
+  "tavern": {
+   "display": "TAVERN theme-and-variation sets",
+   "period": "Classical/Early Romantic",
+   "texture": "variation form",
+   "score_source": "TAVERN (Devaney et al.) re-bundled in When-in-Rome",
+   "score_url": "https://github.com/jcdevaney/TAVERN",
+   "score_license": "see source",
+   "analysis_source": "TAVERN via When-in-Rome",
+   "analysis_url": "https://github.com/MarkGotham/When-in-Rome",
+   "analysis_license": "CC BY-SA 4.0 (When-in-Rome conversion; original: see source)"
+  },
+  "monteverdi": {
+   "display": "Monteverdi madrigals (Books 3-5)",
+   "period": "Early Baroque (1592-1605)",
+   "texture": "polyphonic SATB (modal)",
+   "tonal": false,
+   "score_source": "music21 bundled corpus (Monteverdi madrigals)",
+   "score_url": "https://github.com/cuthbertLab/music21/tree/master/music21/corpus/monteverdi",
+   "score_license": "BSD-3-Clause (music21 toolkit/corpus)",
+   "analysis_source": "music21 bundled .rntxt",
+   "analysis_url": "https://github.com/cuthbertLab/music21/tree/master/music21/corpus/monteverdi",
+   "analysis_license": "BSD-3-Clause (music21)"
+  }
+ },
+ "pieces": [
+  {
+   "id": "Bach WTC I Prelude 01",
+   "genre": "bach-wtc",
+   "events": 35,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Keyboard_Other/Bach%2C_Johann_Sebastian/The_Well-Tempered_Clavier_I/01",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach WTC I Prelude 02",
+   "genre": "bach-wtc",
+   "events": 60,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Keyboard_Other/Bach%2C_Johann_Sebastian/The_Well-Tempered_Clavier_I/02",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach WTC I Prelude 03",
+   "genre": "bach-wtc",
+   "events": 107,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Keyboard_Other/Bach%2C_Johann_Sebastian/The_Well-Tempered_Clavier_I/03",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach WTC I Prelude 04",
+   "genre": "bach-wtc",
+   "events": 91,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Keyboard_Other/Bach%2C_Johann_Sebastian/The_Well-Tempered_Clavier_I/04",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach WTC I Prelude 05",
+   "genre": "bach-wtc",
+   "events": 108,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Keyboard_Other/Bach%2C_Johann_Sebastian/The_Well-Tempered_Clavier_I/05",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach WTC I Prelude 06",
+   "genre": "bach-wtc",
+   "events": 114,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Keyboard_Other/Bach%2C_Johann_Sebastian/The_Well-Tempered_Clavier_I/06",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach WTC I Prelude 07",
+   "genre": "bach-wtc",
+   "events": 217,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Keyboard_Other/Bach%2C_Johann_Sebastian/The_Well-Tempered_Clavier_I/07",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach WTC I Prelude 08",
+   "genre": "bach-wtc",
+   "events": 67,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Keyboard_Other/Bach%2C_Johann_Sebastian/The_Well-Tempered_Clavier_I/08",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach WTC I Prelude 09",
+   "genre": "bach-wtc",
+   "events": 66,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Keyboard_Other/Bach%2C_Johann_Sebastian/The_Well-Tempered_Clavier_I/09",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach WTC I Prelude 10",
+   "genre": "bach-wtc",
+   "events": 76,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Keyboard_Other/Bach%2C_Johann_Sebastian/The_Well-Tempered_Clavier_I/10",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach WTC I Prelude 11",
+   "genre": "bach-wtc",
+   "events": 66,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Keyboard_Other/Bach%2C_Johann_Sebastian/The_Well-Tempered_Clavier_I/11",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach WTC I Prelude 12",
+   "genre": "bach-wtc",
+   "events": 85,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Keyboard_Other/Bach%2C_Johann_Sebastian/The_Well-Tempered_Clavier_I/12",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach WTC I Prelude 13",
+   "genre": "bach-wtc",
+   "events": 97,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Keyboard_Other/Bach%2C_Johann_Sebastian/The_Well-Tempered_Clavier_I/13",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach WTC I Prelude 14",
+   "genre": "bach-wtc",
+   "events": 96,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Keyboard_Other/Bach%2C_Johann_Sebastian/The_Well-Tempered_Clavier_I/14",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach WTC I Prelude 15",
+   "genre": "bach-wtc",
+   "events": 78,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Keyboard_Other/Bach%2C_Johann_Sebastian/The_Well-Tempered_Clavier_I/15",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach WTC I Prelude 16",
+   "genre": "bach-wtc",
+   "events": 114,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Keyboard_Other/Bach%2C_Johann_Sebastian/The_Well-Tempered_Clavier_I/16",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach WTC I Prelude 17",
+   "genre": "bach-wtc",
+   "events": 65,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Keyboard_Other/Bach%2C_Johann_Sebastian/The_Well-Tempered_Clavier_I/17",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach WTC I Prelude 18",
+   "genre": "bach-wtc",
+   "events": 88,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Keyboard_Other/Bach%2C_Johann_Sebastian/The_Well-Tempered_Clavier_I/18",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach WTC I Prelude 19",
+   "genre": "bach-wtc",
+   "events": 93,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Keyboard_Other/Bach%2C_Johann_Sebastian/The_Well-Tempered_Clavier_I/19",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach WTC I Prelude 20",
+   "genre": "bach-wtc",
+   "events": 48,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Keyboard_Other/Bach%2C_Johann_Sebastian/The_Well-Tempered_Clavier_I/20",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach WTC I Prelude 21",
+   "genre": "bach-wtc",
+   "events": 74,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Keyboard_Other/Bach%2C_Johann_Sebastian/The_Well-Tempered_Clavier_I/21",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach WTC I Prelude 22",
+   "genre": "bach-wtc",
+   "events": 91,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Keyboard_Other/Bach%2C_Johann_Sebastian/The_Well-Tempered_Clavier_I/22",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach WTC I Prelude 23",
+   "genre": "bach-wtc",
+   "events": 67,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Keyboard_Other/Bach%2C_Johann_Sebastian/The_Well-Tempered_Clavier_I/23",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach WTC I Prelude 24",
+   "genre": "bach-wtc",
+   "events": 152,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Keyboard_Other/Bach%2C_Johann_Sebastian/The_Well-Tempered_Clavier_I/24",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.10/1 mvt 1",
+   "genre": "beethoven-bps-fh",
+   "events": 226,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Beethoven%2C_Ludwig_van/Op010_No1/1",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.13 Path\u00e9tique mvt 1",
+   "genre": "beethoven-bps-fh",
+   "events": 438,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Beethoven%2C_Ludwig_van/Op013%28Pathetique%29/1",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.31/2 Tempest mvt 1",
+   "genre": "beethoven-bps-fh",
+   "events": 205,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Beethoven%2C_Ludwig_van/Op031_No2/1",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.78 mvt 1",
+   "genre": "beethoven-bps-fh",
+   "events": 204,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Beethoven%2C_Ludwig_van/Op078/1",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.18/1 mvt 1",
+   "genre": "beethoven-op18",
+   "events": 392,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Beethoven%2C_Ludwig_van/Op018_No1/1",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.18/1 mvt 2",
+   "genre": "beethoven-op18",
+   "events": 262,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Beethoven%2C_Ludwig_van/Op018_No1/2",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.18/1 mvt 3",
+   "genre": "beethoven-op18",
+   "events": 202,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Beethoven%2C_Ludwig_van/Op018_No1/3",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.18/1 mvt 4",
+   "genre": "beethoven-op18",
+   "events": 594,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Beethoven%2C_Ludwig_van/Op018_No1/4",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.18/2 mvt 1",
+   "genre": "beethoven-op18",
+   "events": 485,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Beethoven%2C_Ludwig_van/Op018_No2/1",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.18/2 mvt 2",
+   "genre": "beethoven-op18",
+   "events": 176,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Beethoven%2C_Ludwig_van/Op018_No2/2",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.18/2 mvt 3",
+   "genre": "beethoven-op18",
+   "events": 134,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Beethoven%2C_Ludwig_van/Op018_No2/3",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.18/2 mvt 4",
+   "genre": "beethoven-op18",
+   "events": 468,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Beethoven%2C_Ludwig_van/Op018_No2/4",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.18/3 mvt 1",
+   "genre": "beethoven-op18",
+   "events": 379,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Beethoven%2C_Ludwig_van/Op018_No3/1",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.18/3 mvt 2",
+   "genre": "beethoven-op18",
+   "events": 394,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Beethoven%2C_Ludwig_van/Op018_No3/2",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.18/3 mvt 3",
+   "genre": "beethoven-op18",
+   "events": 277,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Beethoven%2C_Ludwig_van/Op018_No3/3",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.18/3 mvt 4",
+   "genre": "beethoven-op18",
+   "events": 560,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Beethoven%2C_Ludwig_van/Op018_No3/4",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.18/4 mvt 1",
+   "genre": "beethoven-op18",
+   "events": 548,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Beethoven%2C_Ludwig_van/Op018_No4/1",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.18/4 mvt 2",
+   "genre": "beethoven-op18",
+   "events": 368,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Beethoven%2C_Ludwig_van/Op018_No4/2",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.18/4 mvt 3",
+   "genre": "beethoven-op18",
+   "events": 142,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Beethoven%2C_Ludwig_van/Op018_No4/3",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.18/4 mvt 4",
+   "genre": "beethoven-op18",
+   "events": 379,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Beethoven%2C_Ludwig_van/Op018_No4/4",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.18/5 mvt 1",
+   "genre": "beethoven-op18",
+   "events": 426,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Beethoven%2C_Ludwig_van/Op018_No5/1",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.18/5 mvt 2",
+   "genre": "beethoven-op18",
+   "events": 166,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Beethoven%2C_Ludwig_van/Op018_No5/2",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.18/5 mvt 3",
+   "genre": "beethoven-op18",
+   "events": 235,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Beethoven%2C_Ludwig_van/Op018_No5/3",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.18/5 mvt 4",
+   "genre": "beethoven-op18",
+   "events": 563,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Beethoven%2C_Ludwig_van/Op018_No5/4",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.18/6 mvt 1",
+   "genre": "beethoven-op18",
+   "events": 368,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Beethoven%2C_Ludwig_van/Op018_No6/1",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.18/6 mvt 2",
+   "genre": "beethoven-op18",
+   "events": 265,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Beethoven%2C_Ludwig_van/Op018_No6/2",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.18/6 mvt 3",
+   "genre": "beethoven-op18",
+   "events": 161,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Beethoven%2C_Ludwig_van/Op018_No6/3",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven Op.18/6 mvt 4",
+   "genre": "beethoven-op18",
+   "events": 465,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Beethoven%2C_Ludwig_van/Op018_No6/4",
+   "in_common_subset": true
+  },
+  {
+   "id": "Brahms Liebe und Fr\u00fchling II",
+   "genre": "brahms-lieder",
+   "events": 92,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Brahms%2C_Johannes/6_Songs%2C_Op.3/3_Liebe_und_Fr%C3%BChling_II",
+   "in_common_subset": true
+  },
+  {
+   "id": "Brahms Liebesklage des M\u00e4dchens",
+   "genre": "brahms-lieder",
+   "events": 111,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Brahms%2C_Johannes/7_Lieder%2C_Op.48/3_Liebesklage_des_M%C3%A4dchens",
+   "in_common_subset": true
+  },
+  {
+   "id": "Brahms Marienlieder 1 Der englische Gruss",
+   "genre": "brahms-lieder",
+   "events": 150,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Brahms%2C_Johannes/Marienlieder%2C_Op.22/1_Der_englische_Gruss",
+   "in_common_subset": true
+  },
+  {
+   "id": "Brahms Marienlieder 2 Marias Kirchgang",
+   "genre": "brahms-lieder",
+   "events": 88,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Brahms%2C_Johannes/Marienlieder%2C_Op.22/2_Marias_Kirchgang",
+   "in_common_subset": true
+  },
+  {
+   "id": "Brahms Marienlieder 3 Marias Wallfahrt",
+   "genre": "brahms-lieder",
+   "events": 77,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Brahms%2C_Johannes/Marienlieder%2C_Op.22/3_Marias_Wallfahrt",
+   "in_common_subset": true
+  },
+  {
+   "id": "Brahms Marienlieder 4 Der J\u00e4ger",
+   "genre": "brahms-lieder",
+   "events": 133,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Brahms%2C_Johannes/Marienlieder%2C_Op.22/4_Der_J%C3%A4ger",
+   "in_common_subset": true
+  },
+  {
+   "id": "Brahms Marienlieder 5 Ruf zur Maria",
+   "genre": "brahms-lieder",
+   "events": 85,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Brahms%2C_Johannes/Marienlieder%2C_Op.22/5_Ruf_zur_Maria",
+   "in_common_subset": true
+  },
+  {
+   "id": "Brahms Marienlieder 6 Magdalena",
+   "genre": "brahms-lieder",
+   "events": 42,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Brahms%2C_Johannes/Marienlieder%2C_Op.22/6_Magdalena",
+   "in_common_subset": true
+  },
+  {
+   "id": "Brahms Marienlieder 7 Marias Lob",
+   "genre": "brahms-lieder",
+   "events": 45,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Brahms%2C_Johannes/Marienlieder%2C_Op.22/7_Marias_Lob",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 001",
+   "genre": "chorales",
+   "events": 59,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/001",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 002",
+   "genre": "chorales",
+   "events": 57,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/002",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 003",
+   "genre": "chorales",
+   "events": 46,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/003",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 004",
+   "genre": "chorales",
+   "events": 50,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/004",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 005",
+   "genre": "chorales",
+   "events": 81,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/005",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 006",
+   "genre": "chorales",
+   "events": 37,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/006",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 007",
+   "genre": "chorales",
+   "events": 94,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/007",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 008",
+   "genre": "chorales",
+   "events": 92,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/008",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 009",
+   "genre": "chorales",
+   "events": 58,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/009",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 010",
+   "genre": "chorales",
+   "events": 50,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/010",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 011",
+   "genre": "chorales",
+   "events": 103,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/011",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 012",
+   "genre": "chorales",
+   "events": 44,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/012",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 013",
+   "genre": "chorales",
+   "events": 69,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/013",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 014",
+   "genre": "chorales",
+   "events": 61,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/014",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 015",
+   "genre": "chorales",
+   "events": 66,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/015",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 016",
+   "genre": "chorales",
+   "events": 78,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/016",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 017",
+   "genre": "chorales",
+   "events": 52,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/017",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 018",
+   "genre": "chorales",
+   "events": 51,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/018",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 019",
+   "genre": "chorales",
+   "events": 45,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/019",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 020",
+   "genre": "chorales",
+   "events": 60,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/020",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 021",
+   "genre": "chorales",
+   "events": 51,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/021",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 022",
+   "genre": "chorales",
+   "events": 59,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/022",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 023",
+   "genre": "chorales",
+   "events": 51,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/023",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 024",
+   "genre": "chorales",
+   "events": 53,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/024",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 025",
+   "genre": "chorales",
+   "events": 52,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/025",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 026",
+   "genre": "chorales",
+   "events": 44,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/026",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 027",
+   "genre": "chorales",
+   "events": 48,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/027",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 028",
+   "genre": "chorales",
+   "events": 36,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/028",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 029",
+   "genre": "chorales",
+   "events": 54,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/029",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 030",
+   "genre": "chorales",
+   "events": 61,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/030",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 031",
+   "genre": "chorales",
+   "events": 50,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/031",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 032",
+   "genre": "chorales",
+   "events": 52,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/032",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 033",
+   "genre": "chorales",
+   "events": 47,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/033",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 034",
+   "genre": "chorales",
+   "events": 79,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/034",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 035",
+   "genre": "chorales",
+   "events": 43,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/035",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 036",
+   "genre": "chorales",
+   "events": 60,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/036",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 037",
+   "genre": "chorales",
+   "events": 60,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/037",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 038",
+   "genre": "chorales",
+   "events": 50,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/038",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 039",
+   "genre": "chorales",
+   "events": 67,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/039",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 040",
+   "genre": "chorales",
+   "events": 39,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/040",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 041",
+   "genre": "chorales",
+   "events": 68,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/041",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 042",
+   "genre": "chorales",
+   "events": 36,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/042",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 043",
+   "genre": "chorales",
+   "events": 49,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/043",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 044",
+   "genre": "chorales",
+   "events": 42,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/044",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 045",
+   "genre": "chorales",
+   "events": 76,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/045",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 046",
+   "genre": "chorales",
+   "events": 45,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/046",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 047",
+   "genre": "chorales",
+   "events": 58,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/047",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 048",
+   "genre": "chorales",
+   "events": 48,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/048",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 049",
+   "genre": "chorales",
+   "events": 62,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/049",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 050",
+   "genre": "chorales",
+   "events": 47,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/050",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 051",
+   "genre": "chorales",
+   "events": 53,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/051",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 052",
+   "genre": "chorales",
+   "events": 80,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/052",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 053",
+   "genre": "chorales",
+   "events": 42,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/053",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 054",
+   "genre": "chorales",
+   "events": 43,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/054",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 055",
+   "genre": "chorales",
+   "events": 48,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/055",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 056",
+   "genre": "chorales",
+   "events": 57,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/056",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 057",
+   "genre": "chorales",
+   "events": 34,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/057",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 058",
+   "genre": "chorales",
+   "events": 91,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/058",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 059",
+   "genre": "chorales",
+   "events": 45,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/059",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 060",
+   "genre": "chorales",
+   "events": 41,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/060",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 061",
+   "genre": "chorales",
+   "events": 79,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/061",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 062",
+   "genre": "chorales",
+   "events": 41,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/062",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 063",
+   "genre": "chorales",
+   "events": 50,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/063",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 064",
+   "genre": "chorales",
+   "events": 52,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/064",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 065",
+   "genre": "chorales",
+   "events": 49,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/065",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 066",
+   "genre": "chorales",
+   "events": 68,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/066",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 067",
+   "genre": "chorales",
+   "events": 56,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/067",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 068",
+   "genre": "chorales",
+   "events": 53,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/068",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 069",
+   "genre": "chorales",
+   "events": 116,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/069",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 070",
+   "genre": "chorales",
+   "events": 99,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/070",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 071",
+   "genre": "chorales",
+   "events": 77,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/071",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 072",
+   "genre": "chorales",
+   "events": 41,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/072",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 073",
+   "genre": "chorales",
+   "events": 60,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/073",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 074",
+   "genre": "chorales",
+   "events": 42,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/074",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 075",
+   "genre": "chorales",
+   "events": 51,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/075",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 076",
+   "genre": "chorales",
+   "events": 66,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/076",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 077",
+   "genre": "chorales",
+   "events": 65,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/077",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 078",
+   "genre": "chorales",
+   "events": 45,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/078",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 079",
+   "genre": "chorales",
+   "events": 60,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/079",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 080",
+   "genre": "chorales",
+   "events": 44,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/080",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 081",
+   "genre": "chorales",
+   "events": 69,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/081",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 082",
+   "genre": "chorales",
+   "events": 59,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/082",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 083",
+   "genre": "chorales",
+   "events": 63,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/083",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 084",
+   "genre": "chorales",
+   "events": 76,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/084",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 085",
+   "genre": "chorales",
+   "events": 59,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/085",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 086",
+   "genre": "chorales",
+   "events": 61,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/086",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 087",
+   "genre": "chorales",
+   "events": 45,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/087",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 088",
+   "genre": "chorales",
+   "events": 51,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/088",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 089",
+   "genre": "chorales",
+   "events": 56,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/089",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 090",
+   "genre": "chorales",
+   "events": 36,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/090",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 091",
+   "genre": "chorales",
+   "events": 117,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/091",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 092",
+   "genre": "chorales",
+   "events": 46,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/092",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 093",
+   "genre": "chorales",
+   "events": 38,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/093",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 094",
+   "genre": "chorales",
+   "events": 40,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/094",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 095",
+   "genre": "chorales",
+   "events": 53,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/095",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 096",
+   "genre": "chorales",
+   "events": 55,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/096",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 097",
+   "genre": "chorales",
+   "events": 61,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/097",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 098",
+   "genre": "chorales",
+   "events": 45,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/098",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 099",
+   "genre": "chorales",
+   "events": 50,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/099",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 100",
+   "genre": "chorales",
+   "events": 58,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/100",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 101",
+   "genre": "chorales",
+   "events": 48,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/101",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 102",
+   "genre": "chorales",
+   "events": 40,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/102",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 103",
+   "genre": "chorales",
+   "events": 46,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/103",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 104",
+   "genre": "chorales",
+   "events": 39,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/104",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 105",
+   "genre": "chorales",
+   "events": 44,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/105",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 106",
+   "genre": "chorales",
+   "events": 62,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/106",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 107",
+   "genre": "chorales",
+   "events": 91,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/107",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 108",
+   "genre": "chorales",
+   "events": 41,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/108",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 109",
+   "genre": "chorales",
+   "events": 67,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/109",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 110",
+   "genre": "chorales",
+   "events": 59,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/110",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 111",
+   "genre": "chorales",
+   "events": 52,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/111",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 112",
+   "genre": "chorales",
+   "events": 39,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/112",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 113",
+   "genre": "chorales",
+   "events": 64,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/113",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 114",
+   "genre": "chorales",
+   "events": 48,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/114",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 115",
+   "genre": "chorales",
+   "events": 58,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/115",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 116",
+   "genre": "chorales",
+   "events": 114,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/116",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 117",
+   "genre": "chorales",
+   "events": 48,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/117",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 118",
+   "genre": "chorales",
+   "events": 52,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/118",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 119",
+   "genre": "chorales",
+   "events": 87,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/119",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 120",
+   "genre": "chorales",
+   "events": 58,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/120",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 121",
+   "genre": "chorales",
+   "events": 52,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/121",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 122",
+   "genre": "chorales",
+   "events": 65,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/122",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 123",
+   "genre": "chorales",
+   "events": 54,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/123",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 124",
+   "genre": "chorales",
+   "events": 63,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/124",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 125",
+   "genre": "chorales",
+   "events": 48,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/125",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 126",
+   "genre": "chorales",
+   "events": 59,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/126",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 127",
+   "genre": "chorales",
+   "events": 45,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/127",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 128",
+   "genre": "chorales",
+   "events": 62,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/128",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 129",
+   "genre": "chorales",
+   "events": 47,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/129",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 130",
+   "genre": "chorales",
+   "events": 23,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/130",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 131",
+   "genre": "chorales",
+   "events": 41,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/131",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 132",
+   "genre": "chorales",
+   "events": 220,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/132",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 133",
+   "genre": "chorales",
+   "events": 174,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/133",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 134",
+   "genre": "chorales",
+   "events": 61,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/134",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 135",
+   "genre": "chorales",
+   "events": 74,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/135",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 136",
+   "genre": "chorales",
+   "events": 42,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/136",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 137",
+   "genre": "chorales",
+   "events": 81,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/137",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 138",
+   "genre": "chorales",
+   "events": 48,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/138",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 139",
+   "genre": "chorales",
+   "events": 54,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/139",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 140",
+   "genre": "chorales",
+   "events": 52,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/140",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 141",
+   "genre": "chorales",
+   "events": 44,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/141",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 142",
+   "genre": "chorales",
+   "events": 61,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/142",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 143",
+   "genre": "chorales",
+   "events": 76,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/143",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 144",
+   "genre": "chorales",
+   "events": 58,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/144",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 145",
+   "genre": "chorales",
+   "events": 50,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/145",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 146",
+   "genre": "chorales",
+   "events": 44,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/146",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 147",
+   "genre": "chorales",
+   "events": 53,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/147",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 148",
+   "genre": "chorales",
+   "events": 40,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/148",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 149",
+   "genre": "chorales",
+   "events": 33,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/149",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 151",
+   "genre": "chorales",
+   "events": 39,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/151",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 152",
+   "genre": "chorales",
+   "events": 65,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/152",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 153",
+   "genre": "chorales",
+   "events": 45,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/153",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 154",
+   "genre": "chorales",
+   "events": 42,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/154",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 155",
+   "genre": "chorales",
+   "events": 58,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/155",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 156",
+   "genre": "chorales",
+   "events": 41,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/156",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 157",
+   "genre": "chorales",
+   "events": 39,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/157",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 158",
+   "genre": "chorales",
+   "events": 79,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/158",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 159",
+   "genre": "chorales",
+   "events": 38,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/159",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 160",
+   "genre": "chorales",
+   "events": 44,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/160",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 161",
+   "genre": "chorales",
+   "events": 40,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/161",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 162",
+   "genre": "chorales",
+   "events": 62,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/162",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 163",
+   "genre": "chorales",
+   "events": 52,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/163",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 164",
+   "genre": "chorales",
+   "events": 55,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/164",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 165",
+   "genre": "chorales",
+   "events": 55,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/165",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 166",
+   "genre": "chorales",
+   "events": 61,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/166",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 167",
+   "genre": "chorales",
+   "events": 62,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/167",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 168",
+   "genre": "chorales",
+   "events": 38,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/168",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 169",
+   "genre": "chorales",
+   "events": 71,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/169",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 170",
+   "genre": "chorales",
+   "events": 40,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/170",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 171",
+   "genre": "chorales",
+   "events": 45,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/171",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 172",
+   "genre": "chorales",
+   "events": 55,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/172",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 173",
+   "genre": "chorales",
+   "events": 47,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/173",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 174",
+   "genre": "chorales",
+   "events": 39,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/174",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 175",
+   "genre": "chorales",
+   "events": 39,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/175",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 176",
+   "genre": "chorales",
+   "events": 45,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/176",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 177",
+   "genre": "chorales",
+   "events": 40,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/177",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 178",
+   "genre": "chorales",
+   "events": 42,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/178",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 179",
+   "genre": "chorales",
+   "events": 35,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/179",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 180",
+   "genre": "chorales",
+   "events": 37,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/180",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 181",
+   "genre": "chorales",
+   "events": 54,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/181",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 182",
+   "genre": "chorales",
+   "events": 59,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/182",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 183",
+   "genre": "chorales",
+   "events": 55,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/183",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 184",
+   "genre": "chorales",
+   "events": 62,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/184",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 185",
+   "genre": "chorales",
+   "events": 46,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/185",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 186",
+   "genre": "chorales",
+   "events": 58,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/186",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 187",
+   "genre": "chorales",
+   "events": 37,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/187",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 188",
+   "genre": "chorales",
+   "events": 43,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/188",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 189",
+   "genre": "chorales",
+   "events": 40,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/189",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 190",
+   "genre": "chorales",
+   "events": 49,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/190",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 191",
+   "genre": "chorales",
+   "events": 42,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/191",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 192",
+   "genre": "chorales",
+   "events": 39,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/192",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 193",
+   "genre": "chorales",
+   "events": 35,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/193",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 194",
+   "genre": "chorales",
+   "events": 41,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/194",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 195",
+   "genre": "chorales",
+   "events": 61,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/195",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 196",
+   "genre": "chorales",
+   "events": 60,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/196",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 197",
+   "genre": "chorales",
+   "events": 135,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/197",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 198",
+   "genre": "chorales",
+   "events": 89,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/198",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 199",
+   "genre": "chorales",
+   "events": 63,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/199",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 200",
+   "genre": "chorales",
+   "events": 73,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/200",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 201",
+   "genre": "chorales",
+   "events": 90,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/201",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 202",
+   "genre": "chorales",
+   "events": 99,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/202",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 203",
+   "genre": "chorales",
+   "events": 55,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/203",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 204",
+   "genre": "chorales",
+   "events": 38,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/204",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 205",
+   "genre": "chorales",
+   "events": 241,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/205",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 206",
+   "genre": "chorales",
+   "events": 59,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/206",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 207",
+   "genre": "chorales",
+   "events": 46,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/207",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 208",
+   "genre": "chorales",
+   "events": 61,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/208",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 209",
+   "genre": "chorales",
+   "events": 46,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/209",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 210",
+   "genre": "chorales",
+   "events": 65,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/210",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 211",
+   "genre": "chorales",
+   "events": 71,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/211",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 212",
+   "genre": "chorales",
+   "events": 62,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/212",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 213",
+   "genre": "chorales",
+   "events": 47,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/213",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 214",
+   "genre": "chorales",
+   "events": 116,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/214",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 215",
+   "genre": "chorales",
+   "events": 118,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/215",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 216",
+   "genre": "chorales",
+   "events": 65,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/216",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 217",
+   "genre": "chorales",
+   "events": 37,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/217",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 218",
+   "genre": "chorales",
+   "events": 74,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/218",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 219",
+   "genre": "chorales",
+   "events": 52,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/219",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 220",
+   "genre": "chorales",
+   "events": 86,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/220",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 221",
+   "genre": "chorales",
+   "events": 54,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/221",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 222",
+   "genre": "chorales",
+   "events": 51,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/222",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 223",
+   "genre": "chorales",
+   "events": 71,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/223",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 224",
+   "genre": "chorales",
+   "events": 37,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/224",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 225",
+   "genre": "chorales",
+   "events": 57,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/225",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 226",
+   "genre": "chorales",
+   "events": 62,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/226",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 227",
+   "genre": "chorales",
+   "events": 84,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/227",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 228",
+   "genre": "chorales",
+   "events": 28,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/228",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 229",
+   "genre": "chorales",
+   "events": 90,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/229",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 230",
+   "genre": "chorales",
+   "events": 51,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/230",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 231",
+   "genre": "chorales",
+   "events": 52,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/231",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 232",
+   "genre": "chorales",
+   "events": 52,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/232",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 233",
+   "genre": "chorales",
+   "events": 48,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/233",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 234",
+   "genre": "chorales",
+   "events": 94,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/234",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 235",
+   "genre": "chorales",
+   "events": 78,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/235",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 236",
+   "genre": "chorales",
+   "events": 36,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/236",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 237",
+   "genre": "chorales",
+   "events": 68,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/237",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 238",
+   "genre": "chorales",
+   "events": 43,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/238",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 239",
+   "genre": "chorales",
+   "events": 66,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/239",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 240",
+   "genre": "chorales",
+   "events": 32,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/240",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 241",
+   "genre": "chorales",
+   "events": 141,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/241",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 242",
+   "genre": "chorales",
+   "events": 58,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/242",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 243",
+   "genre": "chorales",
+   "events": 58,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/243",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 244",
+   "genre": "chorales",
+   "events": 70,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/244",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 245",
+   "genre": "chorales",
+   "events": 50,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/245",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 246",
+   "genre": "chorales",
+   "events": 69,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/246",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 247",
+   "genre": "chorales",
+   "events": 44,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/247",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 248",
+   "genre": "chorales",
+   "events": 53,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/248",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 249",
+   "genre": "chorales",
+   "events": 55,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/249",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 250",
+   "genre": "chorales",
+   "events": 66,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/250",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 251",
+   "genre": "chorales",
+   "events": 49,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/251",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 252",
+   "genre": "chorales",
+   "events": 117,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/252",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 253",
+   "genre": "chorales",
+   "events": 49,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/253",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 254",
+   "genre": "chorales",
+   "events": 57,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/254",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 255",
+   "genre": "chorales",
+   "events": 52,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/255",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 256",
+   "genre": "chorales",
+   "events": 51,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/256",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 257",
+   "genre": "chorales",
+   "events": 37,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/257",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 258",
+   "genre": "chorales",
+   "events": 61,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/258",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 259",
+   "genre": "chorales",
+   "events": 114,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/259",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 260",
+   "genre": "chorales",
+   "events": 47,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/260",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 261",
+   "genre": "chorales",
+   "events": 56,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/261",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 262",
+   "genre": "chorales",
+   "events": 54,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/262",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 263",
+   "genre": "chorales",
+   "events": 50,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/263",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 264",
+   "genre": "chorales",
+   "events": 44,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/264",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 265",
+   "genre": "chorales",
+   "events": 67,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/265",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 266",
+   "genre": "chorales",
+   "events": 54,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/266",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 267",
+   "genre": "chorales",
+   "events": 58,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/267",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 268",
+   "genre": "chorales",
+   "events": 99,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/268",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 269",
+   "genre": "chorales",
+   "events": 59,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/269",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 270",
+   "genre": "chorales",
+   "events": 55,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/270",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 271",
+   "genre": "chorales",
+   "events": 59,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/271",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 272",
+   "genre": "chorales",
+   "events": 50,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/272",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 273",
+   "genre": "chorales",
+   "events": 64,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/273",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 274",
+   "genre": "chorales",
+   "events": 54,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/274",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 275",
+   "genre": "chorales",
+   "events": 50,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/275",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 276",
+   "genre": "chorales",
+   "events": 47,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/276",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 277",
+   "genre": "chorales",
+   "events": 101,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/277",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 278",
+   "genre": "chorales",
+   "events": 55,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/278",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 279",
+   "genre": "chorales",
+   "events": 40,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/279",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 280",
+   "genre": "chorales",
+   "events": 68,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/280",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 281",
+   "genre": "chorales",
+   "events": 52,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/281",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 282",
+   "genre": "chorales",
+   "events": 59,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/282",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 283",
+   "genre": "chorales",
+   "events": 82,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/283",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 284",
+   "genre": "chorales",
+   "events": 61,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/284",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 285",
+   "genre": "chorales",
+   "events": 51,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/285",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 286",
+   "genre": "chorales",
+   "events": 54,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/286",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 287",
+   "genre": "chorales",
+   "events": 39,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/287",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 288",
+   "genre": "chorales",
+   "events": 48,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/288",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 289",
+   "genre": "chorales",
+   "events": 54,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/289",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 290",
+   "genre": "chorales",
+   "events": 55,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/290",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 291",
+   "genre": "chorales",
+   "events": 52,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/291",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 292",
+   "genre": "chorales",
+   "events": 53,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/292",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 293",
+   "genre": "chorales",
+   "events": 43,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/293",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 294",
+   "genre": "chorales",
+   "events": 57,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/294",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 295",
+   "genre": "chorales",
+   "events": 36,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/295",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 296",
+   "genre": "chorales",
+   "events": 88,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/296",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 297",
+   "genre": "chorales",
+   "events": 69,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/297",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 298",
+   "genre": "chorales",
+   "events": 56,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/298",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 299",
+   "genre": "chorales",
+   "events": 62,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/299",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 300",
+   "genre": "chorales",
+   "events": 45,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/300",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 301",
+   "genre": "chorales",
+   "events": 54,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/301",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 302",
+   "genre": "chorales",
+   "events": 61,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/302",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 303",
+   "genre": "chorales",
+   "events": 42,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/303",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 304",
+   "genre": "chorales",
+   "events": 54,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/304",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 305",
+   "genre": "chorales",
+   "events": 61,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/305",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 306",
+   "genre": "chorales",
+   "events": 90,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/306",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 307",
+   "genre": "chorales",
+   "events": 89,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/307",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 308",
+   "genre": "chorales",
+   "events": 40,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/308",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 309",
+   "genre": "chorales",
+   "events": 80,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/309",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 310",
+   "genre": "chorales",
+   "events": 37,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/310",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 311",
+   "genre": "chorales",
+   "events": 47,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/311",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 312",
+   "genre": "chorales",
+   "events": 58,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/312",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 313",
+   "genre": "chorales",
+   "events": 54,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/313",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 314",
+   "genre": "chorales",
+   "events": 60,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/314",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 315",
+   "genre": "chorales",
+   "events": 47,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/315",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 316",
+   "genre": "chorales",
+   "events": 37,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/316",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 317",
+   "genre": "chorales",
+   "events": 54,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/317",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 318",
+   "genre": "chorales",
+   "events": 58,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/318",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 319",
+   "genre": "chorales",
+   "events": 77,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/319",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 320",
+   "genre": "chorales",
+   "events": 27,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/320",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 321",
+   "genre": "chorales",
+   "events": 55,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/321",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 322",
+   "genre": "chorales",
+   "events": 67,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/322",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 323",
+   "genre": "chorales",
+   "events": 64,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/323",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 324",
+   "genre": "chorales",
+   "events": 53,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/324",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 325",
+   "genre": "chorales",
+   "events": 50,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/325",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 326",
+   "genre": "chorales",
+   "events": 49,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/326",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 327",
+   "genre": "chorales",
+   "events": 60,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/327",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 328",
+   "genre": "chorales",
+   "events": 41,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/328",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 329",
+   "genre": "chorales",
+   "events": 56,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/329",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 330",
+   "genre": "chorales",
+   "events": 57,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/330",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 331",
+   "genre": "chorales",
+   "events": 54,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/331",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 332",
+   "genre": "chorales",
+   "events": 68,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/332",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 333",
+   "genre": "chorales",
+   "events": 65,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/333",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 334",
+   "genre": "chorales",
+   "events": 41,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/334",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 335",
+   "genre": "chorales",
+   "events": 50,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/335",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 336",
+   "genre": "chorales",
+   "events": 50,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/336",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 337",
+   "genre": "chorales",
+   "events": 67,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/337",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 338",
+   "genre": "chorales",
+   "events": 39,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/338",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 339",
+   "genre": "chorales",
+   "events": 46,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/339",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 340",
+   "genre": "chorales",
+   "events": 53,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/340",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 341",
+   "genre": "chorales",
+   "events": 72,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/341",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 342",
+   "genre": "chorales",
+   "events": 47,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/342",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 343",
+   "genre": "chorales",
+   "events": 65,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/343",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 344",
+   "genre": "chorales",
+   "events": 51,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/344",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 345",
+   "genre": "chorales",
+   "events": 56,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/345",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 346",
+   "genre": "chorales",
+   "events": 66,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/346",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 347",
+   "genre": "chorales",
+   "events": 50,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/347",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 348",
+   "genre": "chorales",
+   "events": 56,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/348",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 349",
+   "genre": "chorales",
+   "events": 58,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/349",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 350",
+   "genre": "chorales",
+   "events": 46,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/350",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 351",
+   "genre": "chorales",
+   "events": 74,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/351",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 352",
+   "genre": "chorales",
+   "events": 92,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/352",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 353",
+   "genre": "chorales",
+   "events": 54,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/353",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 354",
+   "genre": "chorales",
+   "events": 53,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/354",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 355",
+   "genre": "chorales",
+   "events": 50,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/355",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 356",
+   "genre": "chorales",
+   "events": 52,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/356",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 357",
+   "genre": "chorales",
+   "events": 59,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/357",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 358",
+   "genre": "chorales",
+   "events": 54,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/358",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 359",
+   "genre": "chorales",
+   "events": 75,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/359",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 360",
+   "genre": "chorales",
+   "events": 63,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/360",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 361",
+   "genre": "chorales",
+   "events": 58,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/361",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 362",
+   "genre": "chorales",
+   "events": 47,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/362",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 363",
+   "genre": "chorales",
+   "events": 52,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/363",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 364",
+   "genre": "chorales",
+   "events": 63,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/364",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 365",
+   "genre": "chorales",
+   "events": 55,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/365",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 366",
+   "genre": "chorales",
+   "events": 51,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/366",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 367",
+   "genre": "chorales",
+   "events": 48,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/367",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 368",
+   "genre": "chorales",
+   "events": 48,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/368",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 369",
+   "genre": "chorales",
+   "events": 58,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/369",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 370",
+   "genre": "chorales",
+   "events": 61,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/370",
+   "in_common_subset": true
+  },
+  {
+   "id": "Bach Chorale 371",
+   "genre": "chorales",
+   "events": 67,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/371",
+   "in_common_subset": true
+  },
+  {
+   "id": "Haydn Op.20/3 mvt 4",
+   "genre": "haydn-op20",
+   "events": 163,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Haydn%2C_Franz_Joseph/Op20_No3/4",
+   "in_common_subset": true
+  },
+  {
+   "id": "Haydn Op.20/4 mvt 1",
+   "genre": "haydn-op20",
+   "events": 345,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Haydn%2C_Franz_Joseph/Op20_No4/1",
+   "in_common_subset": true
+  },
+  {
+   "id": "Haydn Op.20/5 mvt 1",
+   "genre": "haydn-op20",
+   "events": 234,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Haydn%2C_Franz_Joseph/Op20_No5/1",
+   "in_common_subset": true
+  },
+  {
+   "id": "Haydn Op.20/6 mvt 4",
+   "genre": "haydn-op20",
+   "events": 278,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Quartets/Haydn%2C_Franz_Joseph/Op20_No6/4",
+   "in_common_subset": true
+  },
+  {
+   "id": "Monteverdi 3.01",
+   "genre": "monteverdi",
+   "events": 263,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.3.1.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 3.02",
+   "genre": "monteverdi",
+   "events": 134,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.3.2.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 3.03",
+   "genre": "monteverdi",
+   "events": 147,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.3.3.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 3.04",
+   "genre": "monteverdi",
+   "events": 149,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.3.4.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 3.05",
+   "genre": "monteverdi",
+   "events": 220,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.3.5.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 3.06",
+   "genre": "monteverdi",
+   "events": 212,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.3.6.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 3.07",
+   "genre": "monteverdi",
+   "events": 235,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.3.7.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 3.08",
+   "genre": "monteverdi",
+   "events": 66,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.3.8.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 3.09",
+   "genre": "monteverdi",
+   "events": 79,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.3.9.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 3.10",
+   "genre": "monteverdi",
+   "events": 133,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.3.10.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 3.11",
+   "genre": "monteverdi",
+   "events": 156,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.3.11.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 3.12",
+   "genre": "monteverdi",
+   "events": 239,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.3.12.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 3.13",
+   "genre": "monteverdi",
+   "events": 160,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.3.13.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 3.14",
+   "genre": "monteverdi",
+   "events": 123,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.3.14.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 3.15",
+   "genre": "monteverdi",
+   "events": 62,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.3.15.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 3.16",
+   "genre": "monteverdi",
+   "events": 109,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.3.16.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 3.17",
+   "genre": "monteverdi",
+   "events": 76,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.3.17.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 3.18",
+   "genre": "monteverdi",
+   "events": 164,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.3.18.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 3.19",
+   "genre": "monteverdi",
+   "events": 129,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.3.19.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 3.20",
+   "genre": "monteverdi",
+   "events": 145,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.3.20.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 4.01",
+   "genre": "monteverdi",
+   "events": 126,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.4.1.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 4.02",
+   "genre": "monteverdi",
+   "events": 113,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.4.2.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 4.03",
+   "genre": "monteverdi",
+   "events": 96,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.4.3.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 4.04",
+   "genre": "monteverdi",
+   "events": 114,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.4.4.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 4.05",
+   "genre": "monteverdi",
+   "events": 127,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.4.5.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 4.06",
+   "genre": "monteverdi",
+   "events": 105,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.4.6.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 4.07",
+   "genre": "monteverdi",
+   "events": 100,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.4.7.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 4.08",
+   "genre": "monteverdi",
+   "events": 132,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.4.8.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 4.09",
+   "genre": "monteverdi",
+   "events": 82,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.4.9.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 4.10",
+   "genre": "monteverdi",
+   "events": 127,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.4.10.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 4.11",
+   "genre": "monteverdi",
+   "events": 89,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.4.11.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 4.12",
+   "genre": "monteverdi",
+   "events": 116,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.4.12.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 4.13",
+   "genre": "monteverdi",
+   "events": 169,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.4.13.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 4.14",
+   "genre": "monteverdi",
+   "events": 141,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.4.14.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 4.15",
+   "genre": "monteverdi",
+   "events": 72,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.4.15.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 4.16",
+   "genre": "monteverdi",
+   "events": 168,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.4.16.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 4.17",
+   "genre": "monteverdi",
+   "events": 97,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.4.17.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 4.18",
+   "genre": "monteverdi",
+   "events": 96,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.4.18.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 4.19",
+   "genre": "monteverdi",
+   "events": 129,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.4.19.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 4.20",
+   "genre": "monteverdi",
+   "events": 163,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.4.20.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 5.01",
+   "genre": "monteverdi",
+   "events": 109,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.5.1.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 5.02",
+   "genre": "monteverdi",
+   "events": 126,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.5.2.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 5.03",
+   "genre": "monteverdi",
+   "events": 100,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.5.3.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 5.04",
+   "genre": "monteverdi",
+   "events": 100,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.5.4.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 5.05",
+   "genre": "monteverdi",
+   "events": 106,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.5.5.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 5.06",
+   "genre": "monteverdi",
+   "events": 82,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.5.6.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 5.07",
+   "genre": "monteverdi",
+   "events": 117,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.5.7.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Monteverdi 5.08",
+   "genre": "monteverdi",
+   "events": 212,
+   "source_url": "https://github.com/cuthbertLab/music21/blob/master/music21/corpus/monteverdi/madrigal.5.8.rntxt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Mozart K279/2",
+   "genre": "mozart-sonatas-dcml",
+   "events": 150,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Mozart%2C_Wolfgang_Amadeus/K279/2",
+   "in_common_subset": true
+  },
+  {
+   "id": "Mozart K279/3",
+   "genre": "mozart-sonatas-dcml",
+   "events": 312,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Mozart%2C_Wolfgang_Amadeus/K279/3",
+   "in_common_subset": true
+  },
+  {
+   "id": "Mozart K280/3",
+   "genre": "mozart-sonatas-dcml",
+   "events": 194,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Mozart%2C_Wolfgang_Amadeus/K280/3",
+   "in_common_subset": true
+  },
+  {
+   "id": "Mozart K281/1",
+   "genre": "mozart-sonatas-dcml",
+   "events": 203,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Mozart%2C_Wolfgang_Amadeus/K281/1",
+   "in_common_subset": true
+  },
+  {
+   "id": "Mozart K281/2",
+   "genre": "mozart-sonatas-dcml",
+   "events": 150,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Mozart%2C_Wolfgang_Amadeus/K281/2",
+   "in_common_subset": true
+  },
+  {
+   "id": "Mozart K281/3",
+   "genre": "mozart-sonatas-dcml",
+   "events": 377,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Mozart%2C_Wolfgang_Amadeus/K281/3",
+   "in_common_subset": true
+  },
+  {
+   "id": "Mozart K282/1",
+   "genre": "mozart-sonatas-dcml",
+   "events": 102,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Mozart%2C_Wolfgang_Amadeus/K282/1",
+   "in_common_subset": true
+  },
+  {
+   "id": "Mozart K282/2",
+   "genre": "mozart-sonatas-dcml",
+   "events": 125,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Mozart%2C_Wolfgang_Amadeus/K282/2",
+   "in_common_subset": true
+  },
+  {
+   "id": "Mozart K283/2",
+   "genre": "mozart-sonatas-dcml",
+   "events": 161,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Mozart%2C_Wolfgang_Amadeus/K283/2",
+   "in_common_subset": true
+  },
+  {
+   "id": "Mozart K284/2",
+   "genre": "mozart-sonatas-dcml",
+   "events": 227,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Mozart%2C_Wolfgang_Amadeus/K284/2",
+   "in_common_subset": true
+  },
+  {
+   "id": "Mozart K284/3",
+   "genre": "mozart-sonatas-dcml",
+   "events": 731,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Mozart%2C_Wolfgang_Amadeus/K284/3",
+   "in_common_subset": true
+  },
+  {
+   "id": "Mozart K309/1",
+   "genre": "mozart-sonatas-dcml",
+   "events": 303,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Mozart%2C_Wolfgang_Amadeus/K309/1",
+   "in_common_subset": true
+  },
+  {
+   "id": "Mozart K309/2",
+   "genre": "mozart-sonatas-dcml",
+   "events": 251,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Mozart%2C_Wolfgang_Amadeus/K309/2",
+   "in_common_subset": true
+  },
+  {
+   "id": "Mozart K309/3",
+   "genre": "mozart-sonatas-dcml",
+   "events": 394,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Mozart%2C_Wolfgang_Amadeus/K309/3",
+   "in_common_subset": true
+  },
+  {
+   "id": "Mozart K310/1",
+   "genre": "mozart-sonatas-dcml",
+   "events": 290,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Mozart%2C_Wolfgang_Amadeus/K310/1",
+   "in_common_subset": true
+  },
+  {
+   "id": "Mozart K310/2",
+   "genre": "mozart-sonatas-dcml",
+   "events": 249,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Mozart%2C_Wolfgang_Amadeus/K310/2",
+   "in_common_subset": true
+  },
+  {
+   "id": "Mozart K311/1",
+   "genre": "mozart-sonatas-dcml",
+   "events": 316,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Mozart%2C_Wolfgang_Amadeus/K311/1",
+   "in_common_subset": true
+  },
+  {
+   "id": "Mozart K332/1",
+   "genre": "mozart-sonatas-dcml",
+   "events": 315,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Mozart%2C_Wolfgang_Amadeus/K332/1",
+   "in_common_subset": true
+  },
+  {
+   "id": "Mozart K457/2",
+   "genre": "mozart-sonatas-dcml",
+   "events": 214,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Mozart%2C_Wolfgang_Amadeus/K457/2",
+   "in_common_subset": true
+  },
+  {
+   "id": "Mozart K533/2",
+   "genre": "mozart-sonatas-dcml",
+   "events": 258,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Mozart%2C_Wolfgang_Amadeus/K533/2",
+   "in_common_subset": true
+  },
+  {
+   "id": "Mozart K545/1",
+   "genre": "mozart-sonatas-dcml",
+   "events": 118,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Mozart%2C_Wolfgang_Amadeus/K545/1",
+   "in_common_subset": true
+  },
+  {
+   "id": "Mozart K545/3",
+   "genre": "mozart-sonatas-dcml",
+   "events": 142,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Mozart%2C_Wolfgang_Amadeus/K545/3",
+   "in_common_subset": true
+  },
+  {
+   "id": "Mozart K570/1",
+   "genre": "mozart-sonatas-dcml",
+   "events": 243,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Mozart%2C_Wolfgang_Amadeus/K570/1",
+   "in_common_subset": true
+  },
+  {
+   "id": "Mozart K576/1",
+   "genre": "mozart-sonatas-dcml",
+   "events": 286,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Piano_Sonatas/Mozart%2C_Wolfgang_Amadeus/K576/1",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Abschied",
+   "genre": "schubert-lieder",
+   "events": 235,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Schwanengesang%2C_D.957/07_Abschied",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Am Meer",
+   "genre": "schubert-lieder",
+   "events": 89,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Schwanengesang%2C_D.957/12_Am_Meer",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Aufenthalt",
+   "genre": "schubert-lieder",
+   "events": 139,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Schwanengesang%2C_D.957/05_Aufenthalt",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Ave Maria",
+   "genre": "schubert-lieder",
+   "events": 41,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Op.52/6_Ellens_Gesang_III%2C_D.839_%28Ave_Maria%29",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Das Fischerm\u00e4dchen",
+   "genre": "schubert-lieder",
+   "events": 91,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Schwanengesang%2C_D.957/10_Das_Fischerm%C3%A4dchen",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Das Rosenband D.280",
+   "genre": "schubert-lieder",
+   "events": 90,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/_/Das_Rosenband%2C_D.280",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Das Wandern",
+   "genre": "schubert-lieder",
+   "events": 37,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Die_sch%C3%B6ne_M%C3%BCllerin%2C_D.795/01_Das_Wandern",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Der Atlas",
+   "genre": "schubert-lieder",
+   "events": 65,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Schwanengesang%2C_D.957/08_Der_Atlas",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Der Doppelg\u00e4nger",
+   "genre": "schubert-lieder",
+   "events": 41,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Schwanengesang%2C_D.957/13_Der_Doppelg%C3%A4nger",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Die Stadt",
+   "genre": "schubert-lieder",
+   "events": 33,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Schwanengesang%2C_D.957/11_Die_Stadt",
+   "in_common_subset": false
+  },
+  {
+   "id": "Schubert Die Sterne D.939",
+   "genre": "schubert-lieder",
+   "events": 103,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/4_Lieder%2C_Op.96/1_Die_Sterne%2C_D.939",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Die Taubenpost",
+   "genre": "schubert-lieder",
+   "events": 157,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Schwanengesang%2C_D.957/14_Die_Taubenpost",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Du bist die Ruh",
+   "genre": "schubert-lieder",
+   "events": 96,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Op.59/3_Du_bist_die_Ruh",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Fr\u00fchlingssehnsucht",
+   "genre": "schubert-lieder",
+   "events": 143,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Schwanengesang%2C_D.957/03_Fr%C3%BChlingssehnsucht",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Ihr Bild",
+   "genre": "schubert-lieder",
+   "events": 64,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Schwanengesang%2C_D.957/09_Ihr_Bild",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert In der Ferne",
+   "genre": "schubert-lieder",
+   "events": 146,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Schwanengesang%2C_D.957/06_In_der_Ferne",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Kriegers Ahnung",
+   "genre": "schubert-lieder",
+   "events": 180,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Schwanengesang%2C_D.957/02_Kriegers_Ahnung",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Liebesbotschaft",
+   "genre": "schubert-lieder",
+   "events": 124,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Schwanengesang%2C_D.957/01_Liebesbotschaft",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Pause",
+   "genre": "schubert-lieder",
+   "events": 115,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Die_sch%C3%B6ne_M%C3%BCllerin%2C_D.795/12_Pause",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert St\u00e4ndchen",
+   "genre": "schubert-lieder",
+   "events": 38,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Schwanengesang%2C_D.957/04_St%C3%A4ndchen",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Trockne Blumen",
+   "genre": "schubert-lieder",
+   "events": 90,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Die_sch%C3%B6ne_M%C3%BCllerin%2C_D.795/18_Trockne_Blumen",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Winterreise 01 Gute Nacht",
+   "genre": "schubert-lieder",
+   "events": 175,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Winterreise%2C_D.911/01_Gute_Nacht",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Winterreise 02 Die Wetterfahne",
+   "genre": "schubert-lieder",
+   "events": 90,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Winterreise%2C_D.911/02_Die_Wetterfahne",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Winterreise 03 Gefror'ne Thr\u00e4nen",
+   "genre": "schubert-lieder",
+   "events": 141,
+   "source_url": null,
+   "in_common_subset": false
+  },
+  {
+   "id": "Schubert Winterreise 04 Erstarrung",
+   "genre": "schubert-lieder",
+   "events": 235,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Winterreise%2C_D.911/04_Erstarrung",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Winterreise 05 Der Lindenbaum",
+   "genre": "schubert-lieder",
+   "events": 216,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Winterreise%2C_D.911/05_Der_Lindenbaum",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Winterreise 06 Wasserfluth",
+   "genre": "schubert-lieder",
+   "events": 44,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Winterreise%2C_D.911/06_Wasserfluth",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Winterreise 07 Auf dem Flusse",
+   "genre": "schubert-lieder",
+   "events": 136,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Winterreise%2C_D.911/07_Auf_dem_Flusse",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Winterreise 08 R\u00fcckblick",
+   "genre": "schubert-lieder",
+   "events": 205,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Winterreise%2C_D.911/08_R%C3%BCckblick",
+   "in_common_subset": false
+  },
+  {
+   "id": "Schubert Winterreise 09 Irrlicht",
+   "genre": "schubert-lieder",
+   "events": 63,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Winterreise%2C_D.911/09_Irrlicht",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Winterreise 10 Rast",
+   "genre": "schubert-lieder",
+   "events": 79,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Winterreise%2C_D.911/10_Rast_%28Sp%C3%A4tere_Fassung%29",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Winterreise 11 Fr\u00fchlingstraum",
+   "genre": "schubert-lieder",
+   "events": 144,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Winterreise%2C_D.911/11_Fr%C3%BChlingstraum",
+   "in_common_subset": false
+  },
+  {
+   "id": "Schubert Winterreise 12 Einsamkeit",
+   "genre": "schubert-lieder",
+   "events": 67,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Winterreise%2C_D.911/12_Einsamkeit_%28Urspruengliche_Fassung%29",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Winterreise 13 Die Post",
+   "genre": "schubert-lieder",
+   "events": 85,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Winterreise%2C_D.911/13_Die_Post",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Winterreise 14 Der greise Kopf",
+   "genre": "schubert-lieder",
+   "events": 56,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Winterreise%2C_D.911/14_Der_greise_Kopf",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Winterreise 15 Die Kr\u00e4he",
+   "genre": "schubert-lieder",
+   "events": 147,
+   "source_url": null,
+   "in_common_subset": false
+  },
+  {
+   "id": "Schubert Winterreise 16 Letzte Hoffnung",
+   "genre": "schubert-lieder",
+   "events": 93,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Winterreise%2C_D.911/16_Letzte_Hoffnung",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Winterreise 17 Im Dorfe",
+   "genre": "schubert-lieder",
+   "events": 86,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Winterreise%2C_D.911/17_Im_Dorfe",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Winterreise 18 Der st\u00fcrmische Morgen",
+   "genre": "schubert-lieder",
+   "events": 51,
+   "source_url": null,
+   "in_common_subset": false
+  },
+  {
+   "id": "Schubert Winterreise 19 T\u00e4uschung",
+   "genre": "schubert-lieder",
+   "events": 46,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Winterreise%2C_D.911/19_T%C3%A4uschung",
+   "in_common_subset": false
+  },
+  {
+   "id": "Schubert Winterreise 20 Der Wegweiser",
+   "genre": "schubert-lieder",
+   "events": 136,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Winterreise%2C_D.911/20_Der_Wegweiser",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Winterreise 21 Das Wirthshaus",
+   "genre": "schubert-lieder",
+   "events": 131,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Winterreise%2C_D.911/21_Das_Wirthshaus",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Winterreise 22 Muth",
+   "genre": "schubert-lieder",
+   "events": 76,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Winterreise%2C_D.911/22_Muth",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Winterreise 23 Die Nebensonnen",
+   "genre": "schubert-lieder",
+   "events": 72,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Winterreise%2C_D.911/23_Die_Nebensonnen",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Winterreise 24 Der Leiermann",
+   "genre": "schubert-lieder",
+   "events": 89,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Winterreise%2C_D.911/24_Der_Leiermann_%28Sp%C3%A4tere_Fassung%29",
+   "in_common_subset": true
+  },
+  {
+   "id": "Schubert Wohin",
+   "genre": "schubert-lieder",
+   "events": 80,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Die_sch%C3%B6ne_M%C3%BCllerin%2C_D.795/02_Wohin",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven WoO 64 (Swiss)",
+   "genre": "tavern",
+   "events": 202,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Variations_and_Grounds/Beethoven%2C_Ludwig_van/_/WoO_64",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven WoO 65 (Venni amore)",
+   "genre": "tavern",
+   "events": 743,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Variations_and_Grounds/Beethoven%2C_Ludwig_van/_/WoO_65",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven WoO 70 (Nel cor)",
+   "genre": "tavern",
+   "events": 292,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Variations_and_Grounds/Beethoven%2C_Ludwig_van/_/WoO_70",
+   "in_common_subset": true
+  },
+  {
+   "id": "Beethoven WoO 75 (Es kommt)",
+   "genre": "tavern",
+   "events": 816,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Variations_and_Grounds/Beethoven%2C_Ludwig_van/_/WoO_75",
+   "in_common_subset": false
+  },
+  {
+   "id": "Beethoven WoO 77 (Original)",
+   "genre": "tavern",
+   "events": 301,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Variations_and_Grounds/Beethoven%2C_Ludwig_van/_/WoO_77",
+   "in_common_subset": true
+  },
+  {
+   "id": "Mozart K179 (Fischer Minuet)",
+   "genre": "tavern",
+   "events": 509,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Variations_and_Grounds/Mozart%2C_Wolfgang_Amadeus/_/K179",
+   "in_common_subset": true
+  },
+  {
+   "id": "Mozart K265 (Twinkle)",
+   "genre": "tavern",
+   "events": 424,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Variations_and_Grounds/Mozart%2C_Wolfgang_Amadeus/_/K265",
+   "in_common_subset": true
+  },
+  {
+   "id": "Mozart K354 (Je suis Lindor)",
+   "genre": "tavern",
+   "events": 509,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Variations_and_Grounds/Mozart%2C_Wolfgang_Amadeus/_/K354",
+   "in_common_subset": false
+  },
+  {
+   "id": "Mozart K501 (Andante 4hands)",
+   "genre": "tavern",
+   "events": 280,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Variations_and_Grounds/Mozart%2C_Wolfgang_Amadeus/_/K501",
+   "in_common_subset": false
+  },
+  {
+   "id": "Mozart K573 (Duport Minuet)",
+   "genre": "tavern",
+   "events": 409,
+   "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Variations_and_Grounds/Mozart%2C_Wolfgang_Amadeus/_/K573",
+   "in_common_subset": true
+  }
+ ]
+}
