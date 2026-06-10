@@ -30,12 +30,14 @@ four engines run **fully autonomously** from raw MusicXML. Match is
 annotator-defensible (**a-d**) column credits defensible alternate
 readings of ambiguous chords and is shown only alongside exact.
 
+<!-- BEGIN GENERATED: genre-balanced -->
 | Engine | Type | Exact % | a-d % | Genres won |
 |---|---|--:|--:|--:|
 | **Contrapunctus** (routed keys + learned chord-ID) | hybrid: rules + learned re-ranker | **49.08** | 68.86 | **6 / 9** |
 | AugmentedNet 11+ (RNalt), ISMIR 2021 | neural (CNN) | 47.18 | 67.27 | 2 / 9 |
 | AnalysisGNN v1.0, 2024 | neural (GNN) | 40.92 | 61.94 | 1 / 9 |
 | Music21 10.1.0 *(keys given — not autonomous)* | rule-based | 23.33 | 41.12 | 0 / 9 |
+<!-- END GENERATED: genre-balanced -->
 
 **Contrapunctus 49.08 vs AugmentedNet 47.18 — a +1.90pp lead.** And it is
 the *stronger* kind of lead: **our number is out-of-sample** (5-fold
@@ -52,6 +54,7 @@ Sorted by our margin over AugmentedNet, so the three genres we **don't**
 win are as visible as the six we do. (`exact %`, event-weighted within
 each genre.)
 
+<!-- BEGIN GENERATED: per-genre -->
 | Genre | Pieces | Contrapunctus | AugmentedNet | AnalysisGNN | Music21 | Winner | Δ vs AugNet |
 |---|--:|--:|--:|--:|--:|---|--:|
 | Bach chorales | 370 | **68.17** | 54.91 | 51.71 | 25.62 | Contrapunctus | **+13.26** |
@@ -63,6 +66,7 @@ each genre.)
 | Brahms lieder | 9 | 39.25 | 39.43 | **43.09** | 11.31 | AnalysisGNN | −0.18 |
 | TAVERN variations | 7 | 41.63 | **48.96** | 40.70 | 21.24 | AugmentedNet | −7.33 |
 | Beethoven BPS-FH | 4 | 40.63 | **49.77** | 22.47 | 10.31 | AugmentedNet | −9.14 |
+<!-- END GENERATED: per-genre -->
 
 We lose **TAVERN** and **Beethoven BPS-FH** to AugmentedNet, and
 **Brahms lieder** to AnalysisGNN. Note that TAVERN and BPS-FH are *both*
@@ -79,12 +83,14 @@ Event-weighted over all 505 pieces. 370 of them are chorales, so this
 mostly reports a chorale number — which is why genre-balanced above is the
 headline. We lead here as well:
 
+<!-- BEGIN GENERATED: all-pieces -->
 | Engine | Exact % | a-d % |
 |---|--:|--:|
 | **Contrapunctus** | **58.05** | 72.30 |
 | AugmentedNet 11+ | 50.85 | 69.21 |
 | AnalysisGNN v1.0 | 47.18 | 64.03 |
 | Music21 10.1.0 *(keys given)* | 24.68 | 40.17 |
+<!-- END GENERATED: all-pieces -->
 
 Common subset: **505 tonal pieces, 48,155 events** — the intersection of
 pieces all four engines successfully analyze (no engine is credited on a

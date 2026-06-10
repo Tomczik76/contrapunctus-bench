@@ -2,20 +2,22 @@
 #
 #   make score   reproduce the headline tables from committed data (~1 min, Python only)
 #   make check   score + assert every README number matches scores.json
+#   make release  cut results/<DATE>: ingest the engine app's fresh report, re-score,
+#                 regenerate the README tables (make release DATE=YYYY-MM-DD)
 #   make manifest regenerate corpus/manifest.json from the engine app's page data
 #   make bench    full rival re-run (heavy: needs submodule + model envs + engine)
-#   make test     run the rn_normalize parity test
+#   make test     run the rn_normalize + score.py parity tests
 
 PYTHON ?= python3
 NODE ?= node
 # Default to the newest date-stamped release; override with RESULTS=results/<date>.
 RESULTS ?= $(shell ls -d results/*/ 2>/dev/null | sort | tail -1)
 
-.PHONY: score check manifest bench test engine-demo help
+.PHONY: score check release manifest bench test engine-demo help
 
 help:
 	@sed -n 's/^# \{0,1\}//p; /^[a-z].*:/q' Makefile | sed '1,1d'
-	@echo "targets: score | check | manifest | bench | test | engine-demo"
+	@echo "targets: score | check | release | manifest | bench | test | engine-demo"
 
 ## Reproduce the published tables from the committed reports (no engine needed).
 score:
@@ -25,15 +27,29 @@ score:
 check:
 	$(PYTHON) harness/score.py $(RESULTS) --check
 
+## Cut a dated release: slim the engine app's fresh corpus-report.json into
+## results/$(DATE)/, carry the rival reports forward (RIVALS=carry, default) or
+## re-slim the app refresh's re-scored comparison outputs (RIVALS=fresh), then
+## re-score, regenerate the README's generated tables, print the prose-review
+## checklist, and verify parity against the app's published benchmarks.json.
+## The full rival re-run stays `make bench`; this is the routine resync path.
+## Needs CONTRAPUNCTUS_APP_ROOT (default ../contrapunctus).
+## Usage: make release DATE=2026-06-10 [RIVALS=carry|fresh] [PRIOR=2026-06-09]
+release:
+	$(PYTHON) corpus/prep/cut_release.py --date "$(DATE)" --rivals "$(or $(RIVALS),carry)" $(if $(PRIOR),--prior "$(PRIOR)")
+
 ## Rebuild the per-piece provenance manifest from the engine app's benchmarks.json.
 ## Needs CONTRAPUNCTUS_APP_ROOT to point at the contrapunctus app checkout
 ## (default ../contrapunctus).
 manifest:
 	$(PYTHON) corpus/prep/build_manifest.py
 
-## Parity-test the shared Roman-numeral normalizer (40 smoke + committed fixture).
+## Parity-test the shared Roman-numeral normalizer (40 smoke + committed fixture)
+## and the scorer (re-aggregating a scratch copy of the newest committed release
+## must reproduce its committed scores.json).
 test:
 	$(PYTHON) harness/test_rn_normalize_parity.py
+	$(PYTHON) harness/test_score_parity.py
 
 ## Run the closed engine (stripped WASM) on demo progressions. Needs Node >= 18.
 ## NOT a benchmark reproduction — see engine/README.md (in-sample vs out-of-sample).

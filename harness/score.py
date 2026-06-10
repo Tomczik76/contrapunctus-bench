@@ -50,12 +50,28 @@ Output: results/<date>/scores.json + the tables on stdout.
 Usage:
     python3 harness/score.py [results/<date>]   # default: newest results dir
     python3 harness/score.py --check            # also verify README numbers
+    python3 harness/score.py --write-readme     # regenerate the README's three
+                                                #   generated table regions from
+                                                #   the computed scores
+    python3 harness/score.py --diff-prose results/<prior>/scores.json
+                                                # print prose-relevant deltas vs a
+                                                #   prior release (warnings only)
+
+The README's three headline tables live between
+`<!-- BEGIN GENERATED: <name> -->` / `<!-- END GENERATED: <name> -->`
+sentinels and are rewritten by --write-readme; the surrounding prose is
+hand-written and NEVER touched by this script. --diff-prose is the bridge
+between the two: it flags score changes the narrative may depend on
+(winner flips, win-tally moves, threshold crossings, lead changes) so a
+release can't silently outrun its prose.
 """
 
 from __future__ import annotations
 
+import argparse
 import json
-import sys
+import math
+import re
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -89,6 +105,245 @@ ENGINES = [
      "Cuthbert et al."),
 ]
 
+ENGINE_STEMS = [e[0] for e in ENGINES]
+
+# ── README table generation (--write-readme) ─────────────────────────────
+#
+# The three headline tables in README.md are generated regions wrapped in
+# <!-- BEGIN GENERATED: <name> --> / <!-- END GENERATED: <name> --> markers.
+# Numbers inside them come from the scores dict; everything outside them is
+# hand-written prose this script never touches.
+#
+# The label strings below are EDITORIAL — bold markers, parentheticals and
+# footnotes are baked in verbatim (they carry judgment, e.g. music21's
+# "keys given" caveat). The renderer only computes the numbers and bolds
+# the leading value per column. Rename an engine here deliberately; the
+# faithfulness contract is that re-running --write-readme on an unchanged
+# results dir is a byte-for-byte no-op on README.md.
+
+README_LABELS = {
+    # stem -> {balanced: row label in the genre-balanced table,
+    #          type:     the Type cell in the genre-balanced table,
+    #          short:    row label in the all-pieces table,
+    #          winner:   the Winner-column name in the per-genre table}
+    "contrapunctus": {
+        "balanced": "**Contrapunctus** (routed keys + learned chord-ID)",
+        "type": "hybrid: rules + learned re-ranker",
+        "short": "**Contrapunctus**",
+        "winner": "Contrapunctus",
+    },
+    "augmentednet": {
+        "balanced": "AugmentedNet 11+ (RNalt), ISMIR 2021",
+        "type": "neural (CNN)",
+        "short": "AugmentedNet 11+",
+        "winner": "AugmentedNet",
+    },
+    "analysisgnn": {
+        "balanced": "AnalysisGNN v1.0, 2024",
+        "type": "neural (GNN)",
+        "short": "AnalysisGNN v1.0",
+        "winner": "AnalysisGNN",
+    },
+    "music21": {
+        "balanced": "Music21 10.1.0 *(keys given — not autonomous)*",
+        "type": "rule-based",
+        "short": "Music21 10.1.0 *(keys given)*",
+        "winner": "Music21",
+    },
+}
+
+GENRE_DISPLAY = {
+    "bach-wtc": "Bach WTC I",
+    "beethoven-bps-fh": "Beethoven BPS-FH",
+    "beethoven-op18": "Beethoven Op.18",
+    "brahms-lieder": "Brahms lieder",
+    "chorales": "Bach chorales",
+    "haydn-op20": "Haydn Op.20",
+    "mozart-sonatas-dcml": "Mozart sonatas (DCML)",
+    "schubert-lieder": "Schubert lieder",
+    "tavern": "TAVERN variations",
+}
+
+MINUS = "−"  # the hand-written tables use a real minus sign, not a hyphen
+
+
+def fmt_signed(delta: float) -> str:
+    return f"+{delta:.2f}" if delta >= 0 else f"{MINUS}{abs(delta):.2f}"
+
+
+def group_delta(row: dict) -> float:
+    """Contrapunctus's lead over AugmentedNet in one genre (rounded values)."""
+    return round(row["contrapunctus"] - row["augmentednet"], 2)
+
+
+def render_genre_balanced(scores: dict) -> str:
+    n_groups = len(scores["per_group"])
+    best = max(ENGINE_STEMS, key=lambda s: scores["balanced"][s]["exact_pct"])
+    most_wins = max(ENGINE_STEMS, key=lambda s: scores["balanced"][s]["wins"])
+    lines = ["| Engine | Type | Exact % | a-d % | Genres won |",
+             "|---|---|--:|--:|--:|"]
+    for stem in ENGINE_STEMS:
+        b = scores["balanced"][stem]
+        lab = README_LABELS[stem]
+        exact = f"{b['exact_pct']:.2f}"
+        if stem == best:
+            exact = f"**{exact}**"
+        wins = f"{b['wins']} / {n_groups}"
+        if stem == most_wins:
+            wins = f"**{wins}**"
+        lines.append(f"| {lab['balanced']} | {lab['type']} | {exact} "
+                     f"| {b['a_d_pct']:.2f} | {wins} |")
+    return "\n".join(lines)
+
+
+def render_all_pieces(scores: dict) -> str:
+    best = max(ENGINE_STEMS, key=lambda s: scores["micro"][s]["exact_pct"])
+    lines = ["| Engine | Exact % | a-d % |",
+             "|---|--:|--:|"]
+    for stem in ENGINE_STEMS:
+        m = scores["micro"][stem]
+        exact = f"{m['exact_pct']:.2f}"
+        if stem == best:
+            exact = f"**{exact}**"
+        lines.append(f"| {README_LABELS[stem]['short']} | {exact} "
+                     f"| {m['a_d_pct']:.2f} |")
+    return "\n".join(lines)
+
+
+def render_per_genre(scores: dict) -> str:
+    rows = sorted(scores["per_group"],
+                  key=lambda r: (-group_delta(r), r["group"]))
+    max_delta_group = rows[0]["group"]  # the headline gap gets the bold Δ
+    lines = ["| Genre | Pieces | Contrapunctus | AugmentedNet | AnalysisGNN "
+             "| Music21 | Winner | Δ vs AugNet |",
+             "|---|--:|--:|--:|--:|--:|---|--:|"]
+    for r in rows:
+        g = r["group"]
+        if g not in GENRE_DISPLAY:
+            raise SystemExit(f"--write-readme: no GENRE_DISPLAY entry for "
+                             f"genre {g!r} — add one (refusing to print a raw id)")
+        cells = []
+        for stem in ENGINE_STEMS:
+            v = f"{r[stem]:.2f}"
+            if r["winner"] == stem:
+                v = f"**{v}**"
+            cells.append(v)
+        delta = fmt_signed(group_delta(r))
+        if g == max_delta_group:
+            delta = f"**{delta}**"
+        lines.append(f"| {GENRE_DISPLAY[g]} | {r['n_pieces']} | "
+                     + " | ".join(cells)
+                     + f" | {README_LABELS[r['winner']]['winner']} | {delta} |")
+    return "\n".join(lines)
+
+
+def write_readme(scores: dict) -> None:
+    """Rewrite the three generated table regions in README.md, nothing else."""
+    readme_path = REPO_ROOT / "README.md"
+    text = readme_path.read_text()
+    tables = {
+        "genre-balanced": render_genre_balanced(scores),
+        "per-genre": render_per_genre(scores),
+        "all-pieces": render_all_pieces(scores),
+    }
+    for name, table in tables.items():
+        begin = f"<!-- BEGIN GENERATED: {name} -->"
+        end = f"<!-- END GENERATED: {name} -->"
+        i, j = text.find(begin), text.find(end)
+        if i < 0 or j < 0 or j < i:
+            raise SystemExit(f"--write-readme: sentinel pair for {name!r} not "
+                             "found in README.md — restore the markers")
+        text = text[:i + len(begin)] + "\n" + table + "\n" + text[j:]
+    readme_path.write_text(text)
+    print(f"README.md: regenerated tables: {', '.join(tables)}")
+
+
+# ── Prose-change detector (--diff-prose) ─────────────────────────────────
+#
+# The interpretive prose (winner-flip sentences, win-tally narrative,
+# memorization caveats, negative results) is hand-written — it is the
+# credibility layer and stays human judgment. This detector makes it
+# impossible to MISS a score change that prose depends on: it compares the
+# freshly computed scores against a prior release's scores.json and prints
+# a review checklist. Warnings only; it changes nothing.
+
+def diff_prose(scores: dict, old_path: Path, results_dir: Path) -> None:
+    old = json.loads(old_path.read_text())
+    warns: list[str] = []
+
+    old_pg = {r["group"]: r for r in old.get("per_group", [])}
+    new_pg = {r["group"]: r for r in scores["per_group"]}
+    for g in sorted(set(old_pg) | set(new_pg)):
+        ow = old_pg.get(g, {}).get("winner")
+        nw = new_pg.get(g, {}).get("winner")
+        if ow != nw:
+            warns.append(f"WINNER CHANGED in {g}: {ow} → {nw} — review every "
+                         "prose mention of this genre (loss/win sentences, caveats)")
+
+    tally_moves = []
+    for stem in ENGINE_STEMS:
+        o = old.get("balanced", {}).get(stem, {}).get("wins")
+        n = scores["balanced"][stem]["wins"]
+        if o != n:
+            tally_moves.append(f"{stem} {o} → {n}")
+    if tally_moves:
+        warns.append("WIN TALLY changed: " + ", ".join(tally_moves)
+                     + " — review the 'X / 9 genres' narrative")
+
+    for level in ("balanced", "micro"):
+        label = "genre-balanced" if level == "balanced" else "all-pieces (micro)"
+        for stem in ENGINE_STEMS:
+            o = old.get(level, {}).get(stem, {}).get("exact_pct")
+            n = scores[level][stem]["exact_pct"]
+            if o is not None and math.floor(o / 10) != math.floor(n / 10):
+                threshold = 10 * max(math.floor(o / 10), math.floor(n / 10))
+                warns.append(f"{stem} {label} exact crossed {threshold}%: "
+                             f"{o:.2f} → {n:.2f} — state plainly if the prose "
+                             "mentions it (no hype)")
+        o_lead = (old.get(level, {}).get("contrapunctus", {}).get("exact_pct", 0)
+                  - old.get(level, {}).get("augmentednet", {}).get("exact_pct", 0))
+        n_lead = (scores[level]["contrapunctus"]["exact_pct"]
+                  - scores[level]["augmentednet"]["exact_pct"])
+        if (o_lead > 0) != (n_lead > 0):
+            warns.append(f"LEAD SIGN FLIP vs AugmentedNet ({label}): "
+                         f"{o_lead:+.2f}pp → {n_lead:+.2f}pp — rewrite the "
+                         "headline claim")
+        elif abs(n_lead - o_lead) > 0.5:
+            warns.append(f"lead vs AugmentedNet moved ({label}): "
+                         f"{o_lead:+.2f}pp → {n_lead:+.2f}pp — update any "
+                         "quoted '+X.XXpp' in the prose")
+
+    for g in sorted(set(old_pg) & set(new_pg)):
+        o, n = old_pg[g]["contrapunctus"], new_pg[g]["contrapunctus"]
+        if (o < 50) != (n < 50):
+            warns.append(f"contrapunctus crossed 50% in {g}: {o:.2f} → {n:.2f}")
+
+    oc, nc = old.get("common_subset", {}), scores["common_subset"]
+    if (oc.get("pieces"), oc.get("events")) != (nc["pieces"], nc["events"]):
+        warns.append(f"COMMON SUBSET changed: {oc.get('pieces')} pieces / "
+                     f"{oc.get('events')} events → {nc['pieces']} / "
+                     f"{nc['events']} — update the counts sentence under the "
+                     "all-pieces table and rerun `make manifest`")
+
+    readme = (REPO_ROOT / "README.md").read_text()
+    stale = sorted({d for d in re.findall(r"results/(\d{4}-\d{2}-\d{2})", readme)
+                    if d != results_dir.name})
+    if stale:
+        warns.append("README prose still references "
+                     + ", ".join(f"results/{d}/" for d in stale)
+                     + f" — repoint the latest-release mentions at "
+                       f"results/{results_dir.name}/")
+
+    print(f"\nPROSE REVIEW — deltas vs {old_path} that the hand-written "
+          "narrative may depend on:")
+    if warns:
+        for w in warns:
+            print(f"  • {w}")
+        print("  (nothing was changed automatically — fix the prose by hand, "
+              "then rerun --check)")
+    else:
+        print("  no prose-relevant deltas detected")
+
 
 def load_report(path: Path) -> dict:
     """Load one engine report; return {(group, piece): row} for single-pick rows."""
@@ -112,6 +367,15 @@ def pct(numer: int, denom: int) -> float:
     return round(100.0 * numer / denom, 2) if denom else 0.0
 
 
+def rel(path: Path) -> Path:
+    """Path relative to the repo root when inside it (prettier output);
+    the absolute path otherwise (e.g. a scratch dir in tests)."""
+    try:
+        return path.relative_to(REPO_ROOT)
+    except ValueError:
+        return path
+
+
 def aggregate(rows: list[dict]) -> dict:
     """Event-weighted tier aggregate over a list of per-piece rows."""
     total = sum(r["total"] for r in rows)
@@ -132,11 +396,23 @@ def aggregate(rows: list[dict]) -> dict:
 
 
 def main() -> None:
-    args = [a for a in sys.argv[1:] if not a.startswith("--")]
-    check = "--check" in sys.argv[1:]
+    parser = argparse.ArgumentParser(
+        description="Aggregate the committed per-piece engine reports into "
+                    "the headline tables.")
+    parser.add_argument("results_dir", nargs="?", default=None,
+                        help="results/<date> directory (default: newest)")
+    parser.add_argument("--check", action="store_true",
+                        help="verify every README number matches scores.json")
+    parser.add_argument("--write-readme", action="store_true",
+                        help="rewrite the README's generated table regions "
+                             "from the computed scores")
+    parser.add_argument("--diff-prose", metavar="OLD_SCORES_JSON", default=None,
+                        help="print prose-relevant deltas vs a prior "
+                             "release's scores.json (warnings only)")
+    opts = parser.parse_args()
 
-    if args:
-        results_dir = Path(args[0])
+    if opts.results_dir:
+        results_dir = Path(opts.results_dir)
         if not results_dir.is_absolute():
             results_dir = (REPO_ROOT / results_dir).resolve()
     else:
@@ -145,7 +421,7 @@ def main() -> None:
             raise SystemExit("no results/<date>/ directories found")
         results_dir = candidates[-1]
 
-    print(f"results: {results_dir.relative_to(REPO_ROOT)}\n")
+    print(f"results: {rel(results_dir)}\n")
 
     data: dict[str, dict[tuple[str, str], dict]] = {}
     for stem, name, *_ in ENGINES:
@@ -293,9 +569,16 @@ def main() -> None:
             e = pt["engines"][stem]
             print(f"  {name:48s} {e['exact_pct']:8.2f} {e['a_d_pct']:8.2f}")
 
-    print(f"\nwrote {out_path.relative_to(REPO_ROOT)}")
+    print(f"\nwrote {rel(out_path)}")
 
-    if check:
+    if opts.write_readme:
+        write_readme(scores)
+    if opts.diff_prose:
+        old_path = Path(opts.diff_prose)
+        if not old_path.is_absolute():
+            old_path = (REPO_ROOT / old_path).resolve()
+        diff_prose(scores, old_path, results_dir)
+    if opts.check:
         check_readme(scores)
 
 
