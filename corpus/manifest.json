@@ -554,7 +554,7 @@
   {
    "id": "Brahms Marienlieder 7 Marias Lob",
    "genre": "brahms-lieder",
-   "events": 45,
+   "events": 90,
    "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Brahms%2C_Johannes/Marienlieder%2C_Op.22/7_Marias_Lob",
    "in_common_subset": true
   },
@@ -1800,7 +1800,7 @@
   {
    "id": "Bach Chorale 179",
    "genre": "chorales",
-   "events": 35,
+   "events": 71,
    "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/179",
    "in_common_subset": true
   },
@@ -3060,7 +3060,7 @@
   {
    "id": "Bach Chorale 359",
    "genre": "chorales",
-   "events": 75,
+   "events": 76,
    "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Early_Choral/Bach%2C_Johann_Sebastian/Chorales/359",
    "in_common_subset": true
   },

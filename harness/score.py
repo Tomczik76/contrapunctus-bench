@@ -94,8 +94,8 @@ TIER_GAINS = [
 
 ENGINES = [
     # (file stem, display name, year, type, source note)
-    ("contrapunctus", "Contrapunctus (routed keys + learned chord-ID)", 2026,
-     "hybrid: rules + learned chord-ID re-ranker", "contrapunctus.app/engine"),
+    ("contrapunctus", "Contrapunctus", 2026,
+     "hybrid: rules + learned chord-ID", "contrapunctus.app/engine"),
     ("augmentednet", "AugmentedNet 11+ (RNalt)", 2021,
      "neural (CNN)", "Nápoles López et al., ISMIR 2021"),
     ("analysisgnn", "AnalysisGNN v1.0", 2024,
@@ -127,7 +127,7 @@ README_LABELS = {
     #          short:    row label in the all-pieces table,
     #          winner:   the Winner-column name in the per-genre table}
     "contrapunctus": {
-        "balanced": "**Contrapunctus** (routed keys + learned chord-ID)",
+        "balanced": "**Contrapunctus**",
         "type": "hybrid: rules + learned re-ranker",
         "short": "**Contrapunctus**",
         "winner": "Contrapunctus",

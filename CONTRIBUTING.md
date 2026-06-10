@@ -85,6 +85,13 @@ regeneration needs:
 `make score` — reproducing the *tables* from committed reports — needs
 none of that, only Python. That is the path 99% of readers want.
 
+Between those two extremes sits `make release DATE=<date>` (maintainer
+path): it ingests a fresh engine report into a new `results/<date>/`
+directory, decides rival-report reuse empirically (coverage gate +
+parity against the published page data), re-scores, and regenerates the
+README's generated table regions. See the Makefile header and
+`corpus/prep/cut_release.py` for details.
+
 ## A note on the scorer
 
 `harness/score.py` is intentionally tiny and dependency-free (stdlib
