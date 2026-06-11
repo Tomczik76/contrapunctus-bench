@@ -15,7 +15,7 @@ so this repo is the canonical, dated source of truth. The engine itself is
 closed; the evaluation is open. ("Closed model, open evals.")
 
 The numbers below are computed by [`harness/score.py`](harness/score.py)
-from the committed `results/2026-06-10/*.report.json` files. Run
+from the committed `results/2026-06-11/*.report.json` files. Run
 `make score` to regenerate them yourself.
 
 ---
@@ -33,56 +33,56 @@ readings of ambiguous chords and is shown only alongside exact.
 <!-- BEGIN GENERATED: genre-balanced -->
 | Engine | Type | Exact % | a-d % | Genres won |
 |---|---|--:|--:|--:|
-| **Contrapunctus** | hybrid: rules + learned re-ranker | **50.17** | 69.49 | **6 / 9** |
-| AugmentedNet 11+ (RNalt), ISMIR 2021 | neural (CNN) | 47.89 | 68.04 | 3 / 9 |
+| **Contrapunctus** | hybrid: rules + learned re-ranker | **52.25** | 70.66 | **7 / 9** |
+| AugmentedNet 11+ (RNalt), ISMIR 2021 | neural (CNN) | 47.94 | 68.04 | 2 / 9 |
 | AnalysisGNN v1.0, 2024 | neural (GNN) | 38.72 | 59.23 | 0 / 9 |
 | Music21 10.1.0 *(keys given — not autonomous)* | rule-based | 23.33 | 41.12 | 0 / 9 |
 <!-- END GENERATED: genre-balanced -->
 
-**Contrapunctus 50.17 vs AugmentedNet 47.89 — a +2.28pp lead**, and the
-first release where the genre-balanced headline is above 50%. It is also
-the *stronger* kind of lead: **our number is out-of-sample** (5-fold
-cross-validation by piece — every piece is scored by a model that never
-trained on it), whereas AugmentedNet's released model is evaluated on
-pieces that include much of its own training data
+**Contrapunctus 52.25 vs AugmentedNet 47.94 — a +4.31pp lead**, nearly
+double the previous release's margin, and the first release where we win
+**7 of the 9 genres**. It is also the *stronger* kind of lead: **our
+number is out-of-sample** (5-fold cross-validation by piece — every
+piece is scored by a model that never trained on it), whereas
+AugmentedNet's released model is evaluated on pieces that include much
+of its own training data
 ([why this is conservative, not a trick](methodology/protocol.md)).
 Music21 has no key detector, so it is handed the analyst's key — its
 column is an easier-conditions upper bound and still finishes last.
 
 ### Where we win, where we lose — per genre
 
-Sorted by our margin over AugmentedNet, so the three genres we **don't**
-win are as visible as the six we do. (`exact %`, event-weighted within
+Sorted by our margin over AugmentedNet, so the two genres we **don't**
+win are as visible as the seven we do. (`exact %`, event-weighted within
 each genre.)
 
 <!-- BEGIN GENERATED: per-genre -->
 | Genre | Pieces | Contrapunctus | AugmentedNet | AnalysisGNN | Music21 | Winner | Δ vs AugNet |
 |---|--:|--:|--:|--:|--:|---|--:|
-| Bach chorales | 370 | **68.15** | 55.23 | 52.89 | 25.62 | Contrapunctus | **+12.92** |
-| Haydn Op.20 | 4 | **54.61** | 46.57 | 39.90 | 35.69 | Contrapunctus | +8.04 |
-| Mozart sonatas (DCML) | 24 | **63.30** | 55.78 | 53.36 | 19.60 | Contrapunctus | +7.52 |
-| Beethoven Op.18 | 24 | **49.28** | 44.08 | 38.78 | 22.91 | Contrapunctus | +5.20 |
-| Schubert lieder | 39 | **56.68** | 54.34 | 43.73 | 35.67 | Contrapunctus | +2.34 |
-| Bach WTC I | 24 | **37.03** | 34.76 | 29.10 | 27.61 | Contrapunctus | +2.27 |
-| Brahms lieder | 9 | 38.36 | **39.43** | 28.57 | 11.31 | AugmentedNet | −1.07 |
-| TAVERN variations | 7 | 42.26 | **49.27** | 43.96 | 21.24 | AugmentedNet | −7.01 |
-| Beethoven BPS-FH | 4 | 41.85 | **51.53** | 18.20 | 10.31 | AugmentedNet | −9.68 |
+| Bach chorales | 370 | **68.33** | 55.23 | 52.89 | 25.62 | Contrapunctus | **+13.10** |
+| Brahms lieder | 9 | **49.25** | 39.43 | 28.57 | 11.31 | Contrapunctus | +9.82 |
+| Haydn Op.20 | 4 | **55.59** | 46.57 | 39.90 | 35.69 | Contrapunctus | +9.02 |
+| Mozart sonatas (DCML) | 24 | **63.39** | 55.84 | 53.36 | 19.60 | Contrapunctus | +7.55 |
+| Beethoven Op.18 | 24 | **49.44** | 44.20 | 38.78 | 22.91 | Contrapunctus | +5.24 |
+| Bach WTC I | 24 | **39.16** | 34.90 | 29.10 | 27.61 | Contrapunctus | +4.26 |
+| Schubert lieder | 39 | **58.66** | 54.49 | 43.73 | 35.67 | Contrapunctus | +4.17 |
+| TAVERN variations | 7 | 43.48 | **49.27** | 43.96 | 21.24 | AugmentedNet | −5.79 |
+| Beethoven BPS-FH | 4 | 42.96 | **51.53** | 18.20 | 10.31 | AugmentedNet | −8.57 |
 <!-- END GENERATED: per-genre -->
 
-We lose **TAVERN**, **Beethoven BPS-FH**, and — narrowly — **Brahms
-lieder**, all three to AugmentedNet. (AnalysisGNN, which won Brahms on
-the 2026-06-09 release at 43.09, dropped to 28.57 there and now wins no
-genre.) TAVERN and BPS-FH are *both* AugmentedNet training collections
-(4 BPS-FH pieces, all in-sample), so its lead there cannot be cleanly
-separated from memorization — whereas several genres we **win** (Haydn
-Op.20, Mozart, Op.18, WTC) are *also* its training data. Brahms is
-different: 7 of the 9 Brahms songs are absent from AugmentedNet's
-dataset entirely (one sits in its training split, one in validation —
-per its published splits), so its −1.07pp edge there is mostly *not* a
-memorization artifact; it is simply slightly ahead on that repertoire
-today. The two big losses are figural/variation textures where a chord
-is spread across an arpeggio; closing them is active engine work, not a
-benchmark artifact.
+We lose **TAVERN** and **Beethoven BPS-FH**, both to AugmentedNet —
+and both are AugmentedNet *training collections* (the 4 BPS-FH pieces
+all in-sample), so its lead there cannot be cleanly separated from
+memorization. Several genres we **win** (Haydn Op.20, Mozart, Op.18,
+WTC) are *also* its training data. **Brahms lieder flipped to us this
+release** (+9.82 after the 2026-06-11 key-detection work; it was a
+−1.07 loss on 2026-06-10), and that win is the cleanest of all: 7 of
+the 9 Brahms songs are absent from AugmentedNet's dataset entirely
+(one sits in its training split, one in validation, per its published
+splits), so this genre is decided mostly on music neither system
+trained on. The two remaining losses are figural/variation textures
+where a chord is spread across an arpeggio; closing them is active
+engine work, not a benchmark artifact.
 
 ### All pieces (micro) — reported too, but chorale-tilted
 
@@ -93,13 +93,13 @@ headline. We lead here as well:
 <!-- BEGIN GENERATED: all-pieces -->
 | Engine | Exact % | a-d % |
 |---|--:|--:|
-| **Contrapunctus** | **58.93** | 72.77 |
-| AugmentedNet 11+ | 51.46 | 69.67 |
+| **Contrapunctus** | **59.63** | 73.16 |
+| AugmentedNet 11+ | 51.51 | 69.67 |
 | AnalysisGNN v1.0 | 46.63 | 62.82 |
 | Music21 10.1.0 *(keys given)* | 24.68 | 40.17 |
 <!-- END GENERATED: all-pieces -->
 
-Common subset: **505 tonal pieces, 48,237 events** — the intersection of
+Common subset: **505 tonal pieces, 48,242 events** — the intersection of
 pieces all four engines successfully analyze (no engine is credited on a
 piece another skipped). 48 Monteverdi madrigals (39 of them analyzed by
 all four engines) are evaluated separately as a pre-tonal exploration,
@@ -155,6 +155,19 @@ Asymmetric honesty: the failures are what make the wins credible.
   engine without making any engine ordering more informative. The tier
   system ([methodology/match-tiers.md](methodology/match-tiers.md)) is
   the result of probes like this, run symmetrically.
+- **The selection layer is saturated (2026-06-11, three independent
+  confirmations).** With the learned re-ranker shipped, three further
+  mechanisms for re-ranking the engine's surviving chord candidates were
+  built, measured, and rejected in one campaign: tick-level **Viterbi
+  decoding** over the model's posteriors with learned transitions
+  (negative at every blend weight), **span-structural-bass refiguring**
+  (two span definitions; the analyst's inversion is a per-event harmonic
+  reading, not a function of the bass voice over any span), and a
+  **metric-weighted window-support score** (a perfect no-op at two
+  weights — surviving candidates' window coverage is near-identical).
+  Conclusion: remaining chord-ID error is candidate/emission-level or
+  key-level, not selection-level. All three post-mortems, with per-genre
+  numbers, are in the engine repo's iteration log.
 
 These are summarized from the engine's iteration history; the benchmark
 records them so a reader can see the search was adversarial, not a
@@ -164,13 +177,13 @@ victory lap.
 
 ```bash
 # 1-minute reproduction from committed data — no engine, no models, just Python:
-make score        # aggregates results/2026-06-10/*.report.json → the tables above
+make score        # aggregates results/2026-06-11/*.report.json → the tables above
 make check        # additionally asserts every README number matches scores.json
 ```
 
 `make score` needs only Python 3.9+ (stdlib). It reads the four committed
 per-piece tier-count reports and reprints the genre-balanced, all-pieces,
-and per-genre tables, writing `results/2026-06-10/scores.json`.
+and per-genre tables, writing `results/2026-06-11/scores.json`.
 
 Regenerating the reports themselves (the heavy path — runs each rival
 model and re-scores) is `make bench`; it needs the When-in-Rome submodule,
@@ -190,7 +203,7 @@ make engine-demo          # or: node engine/run.mjs
 It analyzes a few progressions and prints the production engine's Roman
 numerals (learned model on). **This does not reproduce the benchmark
 numbers** — the artifact carries one full-corpus model, so running it on
-the corpus is *in-sample*, whereas the published 50.17 / 58.93 are
+the corpus is *in-sample*, whereas the published 52.25 / 59.63 are
 *out-of-sample*. The headline is reproduced by `make score`; the engine is
 for analyzing new music. See [`engine/README.md`](engine/README.md).
 
@@ -213,7 +226,7 @@ its sub-corpora carry varying licenses recorded per-piece in the manifest.
 
 ## Versioning
 
-Results are **date-stamped releases** (`results/2026-06-10/`), each pinned
+Results are **date-stamped releases** (`results/2026-06-11/`), each pinned
 to the engine build that produced them (git SHA in
 `results/<date>/PROVENANCE.md`). This repo is the canonical record;
 the `contrapunctus.app/engine` page is regenerated from the same

@@ -498,7 +498,7 @@
   {
    "id": "Brahms Liebe und Fr\u00fchling II",
    "genre": "brahms-lieder",
-   "events": 92,
+   "events": 93,
    "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Brahms%2C_Johannes/6_Songs%2C_Op.3/3_Liebe_und_Fr%C3%BChling_II",
    "in_common_subset": true
   },
@@ -3718,7 +3718,7 @@
   {
    "id": "Schubert Das Rosenband D.280",
    "genre": "schubert-lieder",
-   "events": 90,
+   "events": 91,
    "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/_/Das_Rosenband%2C_D.280",
    "in_common_subset": true
   },
@@ -3837,7 +3837,7 @@
   {
    "id": "Schubert Winterreise 02 Die Wetterfahne",
    "genre": "schubert-lieder",
-   "events": 90,
+   "events": 91,
    "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Winterreise%2C_D.911/02_Die_Wetterfahne",
    "in_common_subset": true
   },
@@ -3956,7 +3956,7 @@
   {
    "id": "Schubert Winterreise 19 T\u00e4uschung",
    "genre": "schubert-lieder",
-   "events": 46,
+   "events": 47,
    "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/OpenScore-LiederCorpus/Schubert%2C_Franz/Winterreise%2C_D.911/19_T%C3%A4uschung",
    "in_common_subset": false
   },
@@ -4005,7 +4005,7 @@
   {
    "id": "Beethoven WoO 64 (Swiss)",
    "genre": "tavern",
-   "events": 202,
+   "events": 203,
    "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Variations_and_Grounds/Beethoven%2C_Ludwig_van/_/WoO_64",
    "in_common_subset": true
   },
@@ -4019,7 +4019,7 @@
   {
    "id": "Beethoven WoO 70 (Nel cor)",
    "genre": "tavern",
-   "events": 292,
+   "events": 293,
    "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Variations_and_Grounds/Beethoven%2C_Ludwig_van/_/WoO_70",
    "in_common_subset": true
   },
@@ -4061,7 +4061,7 @@
   {
    "id": "Mozart K501 (Andante 4hands)",
    "genre": "tavern",
-   "events": 280,
+   "events": 281,
    "source_url": "https://github.com/MarkGotham/When-in-Rome/tree/master/Corpus/Variations_and_Grounds/Mozart%2C_Wolfgang_Amadeus/_/K501",
    "in_common_subset": false
   },
